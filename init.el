@@ -27,6 +27,7 @@
 (require 'init-git)
 (require 'init-projectile)
 (require 'init-company)
+(require 'init-flycheck)
 
 (use-package ws-butler)
 
