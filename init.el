@@ -26,6 +26,7 @@
 (require 'init-crux)
 (require 'init-git)
 (require 'init-projectile)
+(require 'init-company)
 
 (use-package ws-butler)
 
