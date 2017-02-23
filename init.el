@@ -24,6 +24,7 @@
 (require 'init-move-lines)
 (require 'init-crux)
 (require 'init-git)
+(require 'init-projectile)
 
 (use-package ws-butler)
 
