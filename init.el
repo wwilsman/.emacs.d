@@ -16,6 +16,7 @@
 
 (require 'init-ido)
 (require 'init-smex)
+(require 'init-dired)
 (require 'init-kill-ring)
 (require 'init-which-key)
 (require 'init-modeline)
