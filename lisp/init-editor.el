@@ -6,6 +6,7 @@
       inhibit-startup-screen t
       tab-width 2)
 (global-auto-revert-mode t)
+(diminish 'auto-revert-mode)
 (delete-selection-mode t)
 
 ;; scroll one line at a time
