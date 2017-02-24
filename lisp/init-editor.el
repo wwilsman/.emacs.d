@@ -4,6 +4,7 @@
       tab-always-indent 'complete
       ring-bell-function 'ignore
       inhibit-startup-screen t
+      create-lockfiles nil
       tab-width 2)
 (global-auto-revert-mode t)
 (diminish 'auto-revert-mode)
