@@ -5,6 +5,13 @@
 ;; window margins
 (set-window-margins nil nil)
 
+;; shortcuts to maximize the screen
+(global-set-key (kbd "<s-return>") 'toggle-frame-maximized)
+(global-set-key (kbd "<s-S-return>") 'toggle-frame-fullscreen)
+
+;; Split horizontally when opening a new window from a command
+(setq split-height-threshold nil)
+
 ;; vertical split, switch window, and open next buffer
 (defun ww/vsplit-last-buffer ()
   (interactive)
