@@ -1,14 +1,8 @@
-;; smart-mode-line
-(use-package smart-mode-line
+(use-package powerline
   :config
-  (setq sml/no-confirm-load-theme t
-        sml/theme 'respectful)
-  (add-hook 'after-init-hook #'sml/setup))
-
-;; nyanyanyanyanyanyanya
-(use-package nyan-mode
-  :config
-  (unless nyan-mode (nyan-mode t)))
+  (powerline-default-theme)
+  (setq powerline-height 20
+        ns-use-srgb-colorspace nil))
 
 ;; provide this module
 (provide 'init-modeline)
