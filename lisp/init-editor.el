@@ -1,6 +1,7 @@
 ;; editor settings
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t
+      enable-recursive-minibuffers t
       tab-always-indent 'complete
       ring-bell-function 'ignore
       inhibit-startup-screen t

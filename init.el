@@ -19,8 +19,9 @@
 (require 'init-theme)
 (require 'init-font)
 
-(require 'init-ido)
-(require 'init-smex)
+;; (require 'init-ido)
+;; (require 'init-smex)
+(require 'init-ivy)
 (require 'init-dired)
 (require 'init-kill-ring)
 (require 'init-which-key)
