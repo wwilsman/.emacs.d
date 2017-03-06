@@ -5,6 +5,7 @@
       ring-bell-function 'ignore
       inhibit-startup-screen t
       create-lockfiles nil
+      fringe-mode 3
       tab-width 2)
 (global-auto-revert-mode t)
 (diminish 'auto-revert-mode)
