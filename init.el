@@ -8,6 +8,11 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (require 'init-elpa) ; calls (package-initialize)
 
+;; fix $PATH
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
 ;; load configs for specific features and modes
 (require 'init-window)
 (require 'init-editor)
