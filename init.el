@@ -28,8 +28,7 @@
 (require 'init-projectile)
 (require 'init-company)
 (require 'init-flycheck)
-
-(use-package ws-butler)
+(require 'init-whitespace)
 
 ;; language specific configs
 (require 'init-web)
