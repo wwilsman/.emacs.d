@@ -9,12 +9,12 @@
       ring-bell-function 'ignore
       inhibit-startup-screen t
       create-lockfiles nil
-      fringe-mode 3
       tab-width 2)
 (global-auto-revert-mode t)
 (diminish 'auto-revert-mode)
 (delete-selection-mode t)
 (auto-save-mode t)
+(fringe-mode 3)
 
 ;; scroll one line at a time
 (setq scroll-margin 0
