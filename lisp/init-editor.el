@@ -2,6 +2,9 @@
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t
       enable-recursive-minibuffers t
+      auto-save-visited-file-name t
+      auto-save-interval 1
+      auto-save-timeout 1
       tab-always-indent 'complete
       ring-bell-function 'ignore
       inhibit-startup-screen t
@@ -11,6 +14,7 @@
 (global-auto-revert-mode t)
 (diminish 'auto-revert-mode)
 (delete-selection-mode t)
+(auto-save-mode t)
 
 ;; scroll one line at a time
 (setq scroll-margin 0
