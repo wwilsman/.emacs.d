@@ -16,7 +16,7 @@
 ;; load configs for specific features and modes
 (require 'init-window)
 (require 'init-editor)
-(require 'init-theme)
+(require 'init-ui)
 (require 'init-font)
 
 ;; (require 'init-ido)
