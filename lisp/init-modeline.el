@@ -1,3 +1,9 @@
+;; mode line modes
+(line-number-mode t)
+(column-number-mode t)
+(size-indication-mode t)
+
+;; powerline
 (use-package powerline
   :config
   (powerline-default-theme)

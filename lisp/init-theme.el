@@ -2,11 +2,6 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
-
-;; line-number
-(line-number-mode t)
-(column-number-mode t)
-(size-indication-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; theme
