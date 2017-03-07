@@ -9,6 +9,12 @@
   :config
   (load-theme `material t))
 
+;; rainbow mode for colors
+(use-package rainbow-mode
+  :diminish rainbow-mode
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-mode))
+
 ;; rainbow delimiters
 (use-package rainbow-delimiters
   :config
