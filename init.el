@@ -30,7 +30,7 @@
 (require 'init-multiple-cursors)
 (require 'init-move-lines)
 (require 'init-crux)
-(require 'init-git)
+(require 'init-vcs)
 (require 'init-projectile)
 (require 'init-company)
 (require 'init-flycheck)
