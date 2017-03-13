@@ -34,7 +34,15 @@
                ))
     (dolist (char-regexp alist)
       (set-char-table-range composition-function-table (car char-regexp)
-                            `([,(cdr char-regexp) 0 font-shape-gstring])))))
+                            `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
+  (when (find-font (font-spec :name "Operator Mono"))
+    (set-face-attribute 'font-lock-constant-face nil :family "Operator Mono" :italic t)
+    (set-face-attribute 'font-lock-keyword-face nil :family "Operator Mono" :italic t)
+    (set-face-attribute 'font-lock-type-face nil :family "Operator Mono" :italic t)
+    (set-face-attribute 'font-lock-function-name-face nil :family "Operator Mono" :italic t)
+    (set-face-attribute 'font-lock-variable-name-face nil :family "Operator Mono" :italic t)))
+
 
 ;; provide this module
 (provide 'init-font)
