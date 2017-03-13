@@ -1,6 +1,7 @@
 ;; font settings
 (setq-default line-spacing 0.5)
 
+;; set up "Fira Code" font + ligatures
 (when (find-font (font-spec :name "Fira Code"))
   (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
   (set-face-attribute 'default t :font "Fira Code-12")
@@ -36,13 +37,18 @@
       (set-char-table-range composition-function-table (car char-regexp)
                             `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
+  ;; use "Operator Mono" for cursive keywords
   (when (find-font (font-spec :name "Operator Mono"))
     (set-face-attribute 'font-lock-constant-face nil :family "Operator Mono" :italic t)
     (set-face-attribute 'font-lock-keyword-face nil :family "Operator Mono" :italic t)
     (set-face-attribute 'font-lock-type-face nil :family "Operator Mono" :italic t)
-    (set-face-attribute 'font-lock-function-name-face nil :family "Operator Mono" :italic t)
-    (set-face-attribute 'web-mode-html-attr-name-face nil :family "Operator Mono" :italic t)))
+    (set-face-attribute 'font-lock-function-name-face nil :family "Operator Mono" :italic t)))
 
+;; set web-mode specific face-attributes
+(defun ww/web-mode-face-attributes ()
+  (when (find-font (font-spec :name "Operator Mono"))
+    (set-face-attribute 'web-mode-html-attr-name-face nil :family "Operator Mono" :italic t)))
+(add-hook 'web-mode-hook 'ww/web-mode-face-attributes)
 
 ;; provide this module
 (provide 'init-font)
