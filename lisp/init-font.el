@@ -41,7 +41,7 @@
     (set-face-attribute 'font-lock-keyword-face nil :family "Operator Mono" :italic t)
     (set-face-attribute 'font-lock-type-face nil :family "Operator Mono" :italic t)
     (set-face-attribute 'font-lock-function-name-face nil :family "Operator Mono" :italic t)
-    (set-face-attribute 'font-lock-variable-name-face nil :family "Operator Mono" :italic t)))
+    (set-face-attribute 'web-mode-html-attr-name-face nil :family "Operator Mono" :italic t)))
 
 
 ;; provide this module
