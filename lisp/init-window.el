@@ -12,6 +12,10 @@
 ;; Split horizontally when opening a new window from a command
 (setq split-height-threshold nil)
 
+(defun ww/adjust-split-width-threshold ()
+  (setq split-width-threshold (+ 1 (/ (frame-width) 2))))
+(add-hook 'window-configuration-change-hook 'ww/adjust-split-width-threshold)
+
 ;; vertical split, switch window, and open next buffer
 (defun ww/vsplit-last-buffer ()
   (interactive)
