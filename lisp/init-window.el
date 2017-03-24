@@ -1,6 +1,8 @@
 ;; default window size
 (add-to-list 'default-frame-alist '(width . 120))
 (add-to-list 'default-frame-alist '(height . 40))
+(add-to-list 'default-frame-alist '(left-fringe . 3))
+(add-to-list 'default-frame-alist '(right-fringe . 6))
 
 ;; window margins
 (set-window-margins nil nil)
