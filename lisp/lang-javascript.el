@@ -9,4 +9,4 @@
                           ))
 
 ;; provide this module
-(provide 'init-javascript)
+(provide 'lang-javascript)

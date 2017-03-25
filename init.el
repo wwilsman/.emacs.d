@@ -14,32 +14,20 @@
   (exec-path-from-shell-initialize))
 
 ;; load configs for specific features and modes
-(require 'init-window)
-(require 'init-editor)
 (require 'init-ui)
-(require 'init-font)
-
-;; (require 'init-ido)
-;; (require 'init-smex)
-(require 'init-ivy)
-(require 'init-dired)
-(require 'init-kill-ring)
-(require 'init-which-key)
+(require 'init-windowing)
+(require 'init-editing)
+(require 'init-completion)
+(require 'init-projects)
 (require 'init-modeline)
-(require 'init-volatile-highlights)
-(require 'init-multiple-cursors)
-(require 'init-move-lines)
-(require 'init-crux)
-(require 'init-vcs)
-(require 'init-projectile)
-(require 'init-company)
 (require 'init-flycheck)
-(require 'init-whitespace)
+(require 'init-dired)
+(require 'init-vcs)
 
 ;; language specific configs
-(require 'init-web)
-(require 'init-javascript)
-(require 'init-markdown)
+(require 'lang-web)
+(require 'lang-javascript)
+(require 'lang-markdown)
 
 ;; miscellaneous packages
 (use-package sudoku)
