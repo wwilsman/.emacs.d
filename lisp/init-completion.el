@@ -1,16 +1,16 @@
 ;; code searching
 (use-package ag)
 
-;; completion frontend & search
+;; ivy completion frontend & search
 (use-package swiper
   :diminish ivy-mode
   :bind (([remap find-file] . counsel-find-file)
          ([remap describe-function] . counsel-describe-function)
          ([remap describe-variable] . counsel-describe-variable)
          ([remap find-library] . counsel-find-library)
-         ([remap execute-extended-command] . counsel-M-x)
-         :map counsel-find-file-map
-         ([remap ivy-done] . ivy-alt-done))
+         ([remap execute-extended-command] . counsel-M-x))
+  :bind* (:map counsel-find-file-map
+          ([remap ivy-done] . ivy-alt-done))
   :init
   (setq ivy-use-virtual-buffers t)
   :config
