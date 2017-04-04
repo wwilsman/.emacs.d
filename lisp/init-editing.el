@@ -60,7 +60,7 @@
 
 ;; useful to browse kill-ring
 (use-package browse-kill-ring
-  :bind (("M-y" . browse-kill-ring)))
+  :bind (("s-y" . browse-kill-ring)))
 
 ;; undo-tree
 (use-package undo-tree
