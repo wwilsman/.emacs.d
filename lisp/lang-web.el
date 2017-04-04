@@ -21,6 +21,13 @@
         (delete-char 1))
     (backward-delete-char-untabify arg killp)))
 
+;; set up electric-pair mode
+(defun ww/web-mode-electric-pair ()
+  (setq electric-pair-pairs '((?\' . ?\') (?\< . ?\>)))
+  (local-set-key " " 'ww/web-mode-insert-space)
+  (local-set-key "\177" 'ww/web-mode-delete-space)
+  (electric-pair-mode t))
+
 ;; web-mode
 (use-package web-mode
   :mode (("\\.phtml\\'" . web-mode)
@@ -31,6 +38,8 @@
          ("\\.mustache\\'" . web-mode)
          ("\\.djhtml\\'" . web-mode)
          ("\\.html?\\'" . web-mode)
+         ("\\.hbs?\\'" . web-mode)
+         ("\\.css?\\'" . web-mode)
          ("\\.jsx?\\'" . web-mode))
   :init
   (setq web-mode-markup-indent-offset 2)
@@ -41,19 +50,13 @@
 
   (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
 
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (electric-pair-mode t)
-              (setq electric-pair-pairs '((?\' . ?\') (?\< . ?\>)))
-              (local-set-key " " 'ww/web-mode-insert-space)
-              (local-set-key "\177" 'ww/web-mode-delete-space))))
+  (add-hook 'web-mode-hook 'ww/web-mode-electric-pair))
 
 ;; emmet
 (use-package emmet-mode
   :init
   (setq emmet-indentation 2)
   :config
-  (add-hook 'css-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook 'emmet-mode))
 
 ;; provide this module

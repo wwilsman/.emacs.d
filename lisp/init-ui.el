@@ -80,14 +80,10 @@
 ;; set web-mode specific face-attributes
 (defun ww/web-mode-face-attributes ()
   (when (find-font (font-spec :name "Operator Mono"))
-    (set-face-attribute 'web-mode-html-attr-name-face nil :family "Operator Mono" :italic t)))
+    (set-face-attribute 'web-mode-html-attr-name-face nil :family "Operator Mono" :italic t)
+    (set-face-attribute 'web-mode-css-property-name-face  nil :family "Operator Mono" :italic t)
+    (set-face-attribute 'web-mode-css-pseudo-class-face  nil :family "Operator Mono" :italic t)))
 (add-hook 'web-mode-hook 'ww/web-mode-face-attributes)
-
-;; set css-mode specific face-attributes
-(defun ww/css-mode-face-attributes ()
-  (when (find-font (font-spec :name "Operator Mono"))
-    (set-face-attribute 'css-property nil :family "Operator Mono" :italic t)))
-(add-hook 'css-mode-hook 'ww/css-mode-face-attributes)
 
 ;; provide this module
 (provide 'init-ui)
