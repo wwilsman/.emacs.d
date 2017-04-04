@@ -94,8 +94,10 @@
 (use-package move-lines
   :ensure nil
   :load-path "site-lisp/"
-  :config
-  (move-lines-binding))
+  :bind* (("M-p" . move-lines-up)
+          ("M-<up>" . move-lines-up)
+          ("M-n" . move-lines-down)
+          ("M-<down>" . move-lines-down)))
 
 ;; smart trim whitespace
 (use-package ws-trim
