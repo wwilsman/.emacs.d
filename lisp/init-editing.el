@@ -55,7 +55,8 @@
          ("C-<backspace>" . crux-kill-line-backwards)
          ("C-c d" . crux-duplicate-current-line-or-region)
          ("C-c D" . crux-delete-file-and-buffer)
-         ("C-c r" . crux-rename-file-and-buffer)))
+         ("C-c r" . crux-rename-file-and-buffer)
+         ("C-c s" . crux-transpose-windows)))
 
 ;; useful to browse kill-ring
 (use-package browse-kill-ring
