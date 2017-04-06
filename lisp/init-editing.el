@@ -32,12 +32,17 @@
 (setq mouse-wheel-follow-mouse 't)
 (setq scroll-step 1)
 
-;; autosave
-(setq auto-save-visited-file-name t)
-(setq auto-save-interval 20)
-(setq auto-save-timeout 5)
+;; autosave when leaving file
+(defun ww/save-file-buffer ()
+  (when buffer-file-name (save-buffer)))
 
-(auto-save-mode t)
+(defadvice switch-to-buffer (before save-buffer-now activate) (ww/save-file-buffer))
+(defadvice other-window (before other-window-now activate) (ww/save-file-buffer))
+(defadvice windmove-up (before other-window-now activate) (ww/save-file-buffer))
+(defadvice windmove-down (before other-window-now activate) (ww/save-file-buffer))
+(defadvice windmove-left (before other-window-now activate) (ww/save-file-buffer))
+(defadvice windmove-right (before other-window-now activate) (ww/save-file-buffer))
+(add-hook 'focus-out-hook 'ww/save-file-buffer)
 
 ;; tmp locations
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
