@@ -16,9 +16,20 @@
   (hlinum-activate))
 
 ;; theme
-(use-package material-theme
+(use-package base16-theme
   :config
-  (load-theme `material t))
+  (load-theme `base16-onedark t)
+
+  (set-face-attribute
+   'fringe nil
+   :background (face-background 'default))
+  (set-face-attribute
+   'linum nil
+   :background (face-background 'default))
+  (set-face-attribute
+   'linum-highlight-face nil
+   :foreground (face-foreground 'mode-line-highlight)
+   :background (face-background 'default)))
 
 ;; rainbow mode for colors
 (use-package rainbow-mode
