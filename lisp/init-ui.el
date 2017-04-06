@@ -85,5 +85,13 @@
     (set-face-attribute 'web-mode-css-pseudo-class-face  nil :family "Operator Mono" :italic t)))
 (add-hook 'web-mode-hook 'ww/web-mode-face-attributes)
 
+;; set rjsx-mode specific face-attributes
+(defun ww/rjsx-mode-face-attributes ()
+  (when (find-font (font-spec :name "Fira Code"))
+    (set-face-attribute 'rjsx-tag nil :inherit 'web-mode-html-tag-face))
+  (when (find-font (font-spec :name "Operator Mono"))
+    (set-face-attribute 'rjsx-attr nil :inherit 'web-mode-html-attr-name-face)))
+(add-hook 'rjsx-mode-hook 'ww/rjsx-mode-face-attributes)
+
 ;; provide this module
 (provide 'init-ui)

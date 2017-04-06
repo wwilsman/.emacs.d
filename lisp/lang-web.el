@@ -23,7 +23,6 @@
 
 ;; set up electric-pair mode
 (defun ww/web-mode-electric-pair ()
-  (setq electric-pair-pairs '((?\' . ?\') (?\< . ?\>)))
   (local-set-key " " 'ww/web-mode-insert-space)
   (local-set-key "\177" 'ww/web-mode-delete-space)
   (electric-pair-mode t))
@@ -39,8 +38,7 @@
          ("\\.djhtml\\'" . web-mode)
          ("\\.html?\\'" . web-mode)
          ("\\.hbs?\\'" . web-mode)
-         ("\\.css?\\'" . web-mode)
-         ("\\.jsx?\\'" . web-mode))
+         ("\\.css?\\'" . web-mode))
   :init
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
