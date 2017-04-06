@@ -19,17 +19,16 @@
 (use-package base16-theme
   :config
   (load-theme `base16-onedark t)
-
-  (set-face-attribute
-   'fringe nil
-   :background (face-background 'default))
-  (set-face-attribute
-   'linum nil
-   :background (face-background 'default))
-  (set-face-attribute
-   'linum-highlight-face nil
-   :foreground (face-foreground 'mode-line-highlight)
-   :background (face-background 'default)))
+  (custom-set-faces
+   `(fringe ((t (:background ,(face-background 'default)))))
+   `(linum ((t (:background ,(face-background 'default)))))
+   `(linum-highlight-face ((t (:foreground ,(face-foreground 'mode-line-highlight)
+                               :background ,(face-background 'default)))))
+   `(web-mode-html-tag-face ((t (:inherit font-lock-constant-face :foreground nil))))
+   `(web-mode-html-attr-name-face ((t (:inherit font-lock-variable-name-face :foreground nil))))
+   `(web-mode-html-attr-value-face ((t (:inherit font-lock-preprocessor-face :foreground nil))))
+   `(rjsx-tag ((t (:inherit font-lock-constant-face))))
+   `(rjsx-attr ((t (:inherit font-lock-variable-name-face))))))
 
 ;; rainbow mode for colors
 (use-package rainbow-mode
@@ -92,16 +91,14 @@
 (defun ww/web-mode-face-attributes ()
   (when (find-font (font-spec :name "Operator Mono"))
     (set-face-attribute 'web-mode-html-attr-name-face nil :family "Operator Mono" :italic t)
-    (set-face-attribute 'web-mode-css-property-name-face  nil :family "Operator Mono" :italic t)
+    (set-face-attribute 'web-mode-css-property-name-face nil :family "Operator Mono" :italic t)
     (set-face-attribute 'web-mode-css-pseudo-class-face  nil :family "Operator Mono" :italic t)))
 (add-hook 'web-mode-hook 'ww/web-mode-face-attributes)
 
 ;; set rjsx-mode specific face-attributes
 (defun ww/rjsx-mode-face-attributes ()
-  (when (find-font (font-spec :name "Fira Code"))
-    (set-face-attribute 'rjsx-tag nil :inherit 'web-mode-html-tag-face))
   (when (find-font (font-spec :name "Operator Mono"))
-    (set-face-attribute 'rjsx-attr nil :inherit 'web-mode-html-attr-name-face)))
+    (set-face-attribute 'rjsx-attr nil :family "Operator Mono" :italic t)))
 (add-hook 'rjsx-mode-hook 'ww/rjsx-mode-face-attributes)
 
 ;; provide this module
