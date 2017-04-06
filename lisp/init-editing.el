@@ -63,6 +63,13 @@
          ("C-c r" . crux-rename-file-and-buffer)
          ("C-c s" . crux-transpose-windows)))
 
+;; auto open/close pairs
+(use-package smartparens-config
+  :ensure smartparens
+  :diminish smartparens-mode
+  :config
+  (smartparens-global-mode 1))
+
 ;; useful to browse kill-ring
 (use-package browse-kill-ring
   :bind (("s-y" . browse-kill-ring)))
