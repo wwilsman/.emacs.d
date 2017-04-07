@@ -20,10 +20,9 @@
 ;; flycheck
 (use-package flycheck
   :diminish flycheck-mode
-  :init
-  (setq flycheck-indication-mode 'right-fringe)
-  (add-hook 'prog-mode-hook 'flycheck-mode)
   :config
+  (setq flycheck-indication-mode 'right-fringe)
+
   (flycheck-define-error-level 'error
     :severity 2
     :overlay-category 'flycheck-error-overlay
@@ -40,6 +39,7 @@
     :fringe-bitmap `ww/flycheck-fringe-indicator
     :fringe-face 'flycheck-fringe-info)
 
+  (add-hook 'prog-mode-hook 'flycheck-mode)
   (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 ;; provide this module

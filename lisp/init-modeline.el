@@ -5,11 +5,10 @@
 
 ;; powerline
 (use-package powerline
-  :init
+  :config
   (setq powerline-height 20)
   (setq powerline-gui-use-vcs-glyph t)
   (setq ns-use-srgb-colorspace nil)
-  :config
   (powerline-default-theme))
 
 ;; provide this module

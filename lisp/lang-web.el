@@ -39,7 +39,7 @@
          ("\\.html?\\'" . web-mode)
          ("\\.hbs?\\'" . web-mode)
          ("\\.css?\\'" . web-mode))
-  :init
+  :config
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
@@ -52,9 +52,8 @@
 
 ;; emmet
 (use-package emmet-mode
-  :init
-  (setq emmet-indentation 2)
   :config
+  (setq emmet-indentation 2)
   (add-hook 'web-mode-hook 'emmet-mode))
 
 ;; provide this module

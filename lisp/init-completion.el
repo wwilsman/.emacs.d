@@ -12,17 +12,15 @@
          ("C-c u" . counsel-unicode-char))
   :bind* (:map counsel-find-file-map
           ([remap ivy-done] . ivy-alt-done))
-  :init
-  (setq ivy-use-virtual-buffers t)
   :config
+  (setq ivy-use-virtual-buffers t)
   (ivy-mode t))
 
 ;; autocomplete anything
 (use-package company
   :diminish company-mode
-  :init
-  (setq company-dabbrev-downcase nil)
   :config
+  (setq company-dabbrev-downcase nil)
   (global-company-mode +1))
 
 ;; provide this module

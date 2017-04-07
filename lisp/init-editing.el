@@ -77,10 +77,9 @@
 ;; undo-tree
 (use-package undo-tree
   :diminish undo-tree-mode
-  :init
+  :config
   (setq undo-tree-history-directory-alist `((".*" . ,temporary-file-directory)))
   (setq undo-tree-auto-save-history t)
-  :config
   (global-undo-tree-mode))
 
 ;; which key
@@ -116,9 +115,8 @@
   :ensure nil
   :load-path "site-lisp/"
   :diminish ws-trim-mode
-  :init
-  (setq ws-trim-level 1)
   :config
+  (setq ws-trim-level 1)
   (global-ws-trim-mode +1))
 
 ;; provide this module
