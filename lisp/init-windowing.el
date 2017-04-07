@@ -1,9 +1,8 @@
 ;; default window size, fringes, & margins
 (add-to-list 'default-frame-alist '(width . 120))
 (add-to-list 'default-frame-alist '(height . 40))
-(add-to-list 'default-frame-alist '(left-fringe . 3))
-(add-to-list 'default-frame-alist '(right-fringe . 6))
 (set-window-margins nil nil)
+(fringe-mode 8)
 
 ;; shortcuts to maximize the screen
 (global-set-key (kbd "<s-return>") 'toggle-frame-maximized)
