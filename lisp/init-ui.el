@@ -20,13 +20,15 @@
   :config
   (load-theme `base16-onedark t)
   (custom-set-faces
-   `(fringe ((t (:background ,(face-background 'default)))))
-   `(linum ((t (:background ,(face-background 'default)))))
-   `(linum-highlight-face ((t (:foreground ,(face-foreground 'mode-line-highlight)
-                               :background ,(face-background 'default)))))
+   `(fringe ((t (:background nil))))
+
+   `(linum ((t (:background nil))))
+   `(linum-highlight-face ((t (:foreground ,(face-foreground 'mode-line-highlight) :background nil))))
+
    `(web-mode-html-tag-face ((t (:inherit font-lock-constant-face :foreground nil))))
    `(web-mode-html-attr-name-face ((t (:inherit font-lock-variable-name-face :foreground nil))))
    `(web-mode-html-attr-value-face ((t (:inherit font-lock-preprocessor-face :foreground nil))))
+
    `(rjsx-tag ((t (:inherit font-lock-constant-face))))
    `(rjsx-attr ((t (:inherit font-lock-variable-name-face))))))
 
