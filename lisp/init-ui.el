@@ -98,6 +98,7 @@
 
   ;; use "Operator Mono" for cursive keywords
   (when (find-font (font-spec :name "Operator Mono"))
+    (set-face-attribute 'font-lock-builtin-face nil :family "Operator Mono" :italic t)
     (set-face-attribute 'font-lock-constant-face nil :family "Operator Mono" :italic t)
     (set-face-attribute 'font-lock-keyword-face nil :family "Operator Mono" :italic t)
     (set-face-attribute 'font-lock-type-face nil :family "Operator Mono" :italic t)
