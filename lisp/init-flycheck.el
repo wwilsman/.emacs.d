@@ -1,46 +1,18 @@
-;; exclamation point
-(define-fringe-bitmap 'ww/flycheck-fringe-indicator
-  (vector #b00000000
-          #b00011000
-          #b00011000
-          #b00011000
-          #b00011000
-          #b00011000
-          #b00011000
-          #b00000000
-          #b00000000
-          #b00011000
-          #b00011000
-          #b00000000
-          #b00000000
-          #b00000000
-          #b00000000
-          #b00000000))
+;;; init-flycheck.el --- Flycheck settings
+;;; Commentary:
+;;; Code:
+(require 'use-package)
 
-;; flycheck
 (use-package flycheck
   :diminish flycheck-mode
+  :hook prog-mode
+  :custom
+  (flycheck-indication-mode 'right-fringe)
   :config
-  (setq flycheck-indication-mode 'right-fringe)
-
-  (flycheck-define-error-level 'error
-    :severity 2
-    :overlay-category 'flycheck-error-overlay
-    :fringe-bitmap `ww/flycheck-fringe-indicator
-    :fringe-face 'flycheck-fringe-error)
-  (flycheck-define-error-level 'warning
-    :severity 1
-    :overlay-category 'flycheck-warning-overlay
-    :fringe-bitmap `ww/flycheck-fringe-indicator
-    :fringe-face 'flycheck-fringe-warning)
-  (flycheck-define-error-level 'info
-    :severity 0
-    :overlay-category 'flycheck-info-overlay
-    :fringe-bitmap `ww/flycheck-fringe-indicator
-    :fringe-face 'flycheck-fringe-info)
-
-  (add-hook 'prog-mode-hook 'flycheck-mode)
+  ;; make the flycheck arror look like an exclamation point
+  (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
+    [0 24 24 24 24 24 24 0 0 24 24 0 0 0 0 0 0])
   (flycheck-add-mode 'javascript-eslint 'web-mode))
 
-;; provide this module
 (provide 'init-flycheck)
+;;; init-flycheck.el ends here

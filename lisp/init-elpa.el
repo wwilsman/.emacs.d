@@ -1,27 +1,54 @@
+;;; init-elpa.el --- Initialize packages
+;;; Commentary:
+;;; Code:
 (require 'package)
+(require 'tls)
 
-;; Use melpa for most packages
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(setq
+ package-enable-at-startup nil
+ package-archives
+ '(("melpa-stable" . "https://stable.melpa.org/packages/")
+   ("melpa" . "https://melpa.org/packages/")
+   ;;("gnu" . "http://elpa.gnu.org/packages/"))
+   ("gnu" . "http://mirrors.163.com/elpa/gnu/"))
+ package-archive-priorities
+ '(("melpa-stable" . 10)
+   ("melpa" . 5)
+   ("gnu" . 0)))
 
-;; fire up package.el
-(setq package-enable-at-startup nil)
-(package-initialize)
+(eval-when-compile
+  (package-initialize)
 
-;; refresh package-archives
-(or (file-exists-p package-user-dir)
-    (package-refresh-contents))
+  ;; first run, update package lists
+  (or (file-exists-p package-user-dir)
+      (package-refresh-contents))
 
-;; install initial packages
-(dolist (package '(use-package diminish))
-  (unless (package-installed-p package)
-    (package-install package)))
+  ;; install essential packages
+  (dolist (package (list 'use-package 'diminish 'quelpa))
+    (unless (package-installed-p package)
+      (package-install package)))
 
-;; require them
-(eval-when-compile (require 'use-package))
-(require 'diminish)
+  ;; bootstrap quelpa
+  (if (require 'quelpa nil t)
+    (quelpa-self-upgrade)
+  (with-temp-buffer
+    (url-insert-file-contents "https://framagit.org/steckerhalter/quelpa/raw/master/bootstrap.el")
+    (eval-buffer)))
 
-;; always ensure packages are installed
-(setq use-package-always-ensure t)
+  ;; enable quelpa with use-package
+  (quelpa
+   '(quelpa-use-package
+     :fetcher git
+     :url "https://framagit.org/steckerhalter/quelpa-use-package.git")
+   :upgrade t)
 
-;; provide this module
+  ;; require things for the first time
+  (require 'use-package)
+  (require 'quelpa-use-package)
+  (require 'diminish)
+
+  ;; always ensure packages are installed
+  (setq use-package-always-ensure t))
+
 (provide 'init-elpa)
+;;; init-elpa.el ends here

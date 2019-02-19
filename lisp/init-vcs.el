@@ -1,15 +1,21 @@
-;; highlight diff in fringe
-(use-package diff-hl
-  :config
-  (setq diff-hl-draw-borders nil)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  (global-diff-hl-mode +1)
-  (diff-hl-flydiff-mode))
+;;; init-vcs.el --- Version control settings
+;;; Commentary:
+;;; Code:
+(require 'use-package)
 
 ;; magit
 (use-package magit
   :bind (("C-x g" . magit-status)
          ("C-x M-g" . magit-dispatch-popup)))
 
-;; provide this module
+;; highlight diff in fringe
+(use-package diff-hl
+  :hook (magit-post-refresh . diff-hl-magit-post-refresh)
+  :custom
+  (diff-hl-draw-borders nil)
+  :config
+  (global-diff-hl-mode t)
+  (diff-hl-flydiff-mode))
+
 (provide 'init-vcs)
+;;; init-vcs.el ends here

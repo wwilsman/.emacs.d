@@ -1,6 +1,10 @@
-;; difference between two times in ms
-(defun ww/time-subtract-ms (b a)
-  (* 1000.0 (float-time (time-subtract b a))))
+;;; init-benchmarking.el --- Benchmarking emacs startup
+;;; Commentary:
+;;; Code:
+
+(defun ww/time-subtract-ms (a b)
+  "Return the difference between two times, A and B, in ms."
+  (* 1000.0 (float-time (time-subtract a b))))
 
 ;; list used to store require times
 (defvar ww/require-times nil
@@ -17,11 +21,11 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
         (let ((time (ww/time-subtract-ms (current-time) require-start-time)))
           (add-to-list 'ww/require-times (cons feature time) t))))))
 
-;; prints the time taken to require all modules during init
 (defun ww/show-init-time ()
+  "Print the time taken to require all modules during init."
   (message "init completed in %.2fms"
            (ww/time-subtract-ms after-init-time before-init-time)))
 (add-hook 'after-init-hook 'ww/show-init-time)
 
-;; provide this module
 (provide 'init-benchmarking)
+;;; init-benchmarking.el ends here

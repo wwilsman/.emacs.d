@@ -1,9 +1,21 @@
-;; code searching
-(use-package ag)
+;;; init-completion.el --- Completion packages
+;;; Commentary:
+;;; Code:
+(require 'use-package)
 
-;; ivy completion frontend & search
-(use-package swiper
+;; ivy and friends
+(use-package ag)
+(use-package flx)
+(use-package smex)
+(use-package ivy
   :diminish ivy-mode
+  :custom
+  (ivy-use-virtual-buffers t)
+  :config
+  (ivy-mode t))
+
+;; ivy-enhanced commands
+(use-package counsel
   :bind (([remap find-file] . counsel-find-file)
          ([remap describe-function] . counsel-describe-function)
          ([remap describe-variable] . counsel-describe-variable)
@@ -12,16 +24,22 @@
          ("C-c u" . counsel-unicode-char))
   :bind* (:map counsel-find-file-map
           ([remap ivy-done] . ivy-alt-done))
-  :config
-  (setq ivy-use-virtual-buffers t)
-  (ivy-mode t))
+  :chords (("xx" . counsel-M-x)))
 
-;; autocomplete anything
+;; ivy search
+(use-package swiper)
+
+;; autocomplete with company
 (use-package company
   :diminish company-mode
+  :custom
+  (company-dabbrev-downcase nil)
+  (company-idle-delay 0.5)
+  (company-tooltip-limit)
+  (company-minimum-prefix-length 2)
+  (company-tooltip-flip-when-above t)
   :config
-  (setq company-dabbrev-downcase nil)
-  (global-company-mode +1))
+  (global-company-mode t))
 
-;; provide this module
 (provide 'init-completion)
+;;; init-completion.el ends here
