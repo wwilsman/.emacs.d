@@ -34,12 +34,9 @@
   :diminish company-mode
   :custom
   (company-dabbrev-downcase nil)
-  (company-idle-delay 0.5)
-  (company-tooltip-limit)
   (company-minimum-prefix-length 2)
   (company-tooltip-flip-when-above t)
-  :config
-  (global-company-mode t))
+  :hook (after-init . global-company-mode))
 
 (provide 'init-completion)
 ;;; init-completion.el ends here
