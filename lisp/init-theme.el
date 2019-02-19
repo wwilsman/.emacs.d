@@ -45,7 +45,8 @@
 
 ;; rainbow delimiters
 (use-package rainbow-delimiters
-  :hook prog-mode)
+  :diminish rainbow-delimiters-mode
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (provide 'init-theme)
 ;;; init-theme.el ends here
