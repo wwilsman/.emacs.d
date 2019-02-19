@@ -1,8 +1,6 @@
 ;;; init-windowing.el --- Windowing settings
 ;;; Commentary:
 ;;; Code:
-(add-to-list 'default-frame-alist '(width . 120))
-(add-to-list 'default-frame-alist '(height . 40))
 
 ;; shortcuts to maximize the screen
 (global-set-key (kbd "<s-return>") 'toggle-frame-maximized)
@@ -27,7 +25,7 @@
   (split-window-vertically)
   (other-window 1 nil)
   (switch-to-next-buffer))
-(global-set-key (kbd "C-x 2") 'ww/v-split-last-buffer)
+(global-set-key (kbd "C-x 3") 'ww/v-split-last-buffer)
 
 ;; use custom horizontal split function
 (defun ww/hsplit-last-buffer ()
@@ -36,7 +34,7 @@
   (split-window-horizontally)
   (other-window 1 nil)
   (switch-to-next-buffer))
-(global-set-key (kbd "C-x 3") 'ww/hsplit-last-buffer)
+(global-set-key (kbd "C-x 2") 'ww/hsplit-last-buffer)
 
 ;; swap split window orientation
 (defun ww/swap-split-window-orientation ()
