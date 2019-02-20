@@ -29,18 +29,16 @@
       (package-install package)))
 
   ;; bootstrap quelpa
-  (if (require 'quelpa nil t)
-    (quelpa-self-upgrade)
-  (with-temp-buffer
-    (url-insert-file-contents "https://framagit.org/steckerhalter/quelpa/raw/master/bootstrap.el")
-    (eval-buffer)))
+  (unless (require 'quelpa nil t)
+    (with-temp-buffer
+      (url-insert-file-contents "https://framagit.org/steckerhalter/quelpa/raw/master/bootstrap.el")
+      (eval-buffer)))
 
   ;; enable quelpa with use-package
   (quelpa
    '(quelpa-use-package
      :fetcher git
-     :url "https://framagit.org/steckerhalter/quelpa-use-package.git")
-   :upgrade t)
+     :url "https://framagit.org/steckerhalter/quelpa-use-package.git"))
 
   ;; require things for the first time
   (require 'use-package)
