@@ -27,7 +27,8 @@
   :chords (("xx" . counsel-M-x)))
 
 ;; ivy search
-(use-package swiper)
+(use-package swiper
+  :bind (("C-s" . swiper)))
 
 ;; autocomplete with company
 (use-package company
