@@ -12,18 +12,9 @@
   (diredp-hide-details-propagate-flag nil)
   ;; MacOS `ls` does not support `--dired` so always use ls-lisp
   (ls-lisp-use-insert-directory-program nil)
+  (ls-lisp-dirs-first t)
   :config
-  (diredp-toggle-find-file-reuse-dir 1)
-
-  (defadvice dired-readin
-      (after dired-after-updating-hook first () activate)
-    "Sort dired listings with directories first before adding marks."
-    (lambda ()
-      (save-excursion
-        (let (buffer-read-only)
-          (forward-line 2) ;; beyond dir. header
-          (sort-regexp-fields t "^.*$" "[ ]*." (point) (point-max)))
-        (set-buffer-modified-p nil)))))
+  (diredp-toggle-find-file-reuse-dir 1))
 
 (provide 'init-dired)
 ;;; init-dired.el ends here
