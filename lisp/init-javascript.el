@@ -18,7 +18,7 @@
   (js2-getprop-has-side-effects t))
 
 (use-package js2-refactor
-  :hook js2-mode
+  :hook (js2-mode . js2-refactor-mode)
   :config
   (js2r-add-keybindings-with-prefix "C-c C-r"))
 
@@ -39,6 +39,7 @@
 (use-package json-mode)
 
 ;; parse node stack traces in compilation buffers
+(require 'compile)
 (add-to-list 'compilation-error-regexp-alist 'node)
 (add-to-list 'compilation-error-regexp-alist-alist
              '(node "^[[:blank:]]*at \\(.*(\\|\\)\\(.+?\\):\\([[:digit:]]+\\):\\([[:digit:]]+\\)" 2 3 4))
