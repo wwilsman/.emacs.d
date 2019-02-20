@@ -4,6 +4,8 @@
 (require 'use-package)
 
 (use-package exec-path-from-shell
+  :custom
+  (exec-path-from-shell-check-startup-files nil)
   :config
   (exec-path-from-shell-initialize))
 

@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (require 'quelpa-use-package)
+(require 'ls-lisp)
 
 (use-package dired+
   :ensure nil ; quelpa will take care of this
@@ -9,6 +10,8 @@
   :custom
   (diredp-hide-details-initially-flag nil)
   (diredp-hide-details-propagate-flag nil)
+  ;; MacOS `ls` does not support `--dired` so always use ls-lisp
+  (ls-lisp-use-insert-directory-program nil)
   :config
   (diredp-toggle-find-file-reuse-dir 1)
 

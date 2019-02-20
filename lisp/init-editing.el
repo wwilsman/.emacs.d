@@ -20,6 +20,9 @@
 ;; silence!
 (setq ring-bell-function 'ignore)
 
+;; some packages modify key-bindings themselves and produce noisy messages
+(setq ad-redefinition-action 'accept)
+
 ;; temp file locations
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
