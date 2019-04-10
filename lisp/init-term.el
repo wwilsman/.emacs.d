@@ -5,7 +5,8 @@
 
 (use-package multi-term
   :custom
-  (multi-term-program "/bin/zsh"))
+  (multi-term-program "/bin/zsh")
+  (term-suppress-hard-newline t))
 
 (provide 'init-term)
 ;;; init-term.el ends here
