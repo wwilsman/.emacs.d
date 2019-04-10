@@ -11,8 +11,8 @@
 ;; default fill-column
 (setq-default fill-column 80)
 
-;; show trailing whitespace
-(setq-default show-trailing-whitespace t)
+;; show trailing whitespace in prog-mode
+(add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
 ;; missing newlines can mess up diffs
 (setq require-final-newline t)
