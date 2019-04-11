@@ -157,5 +157,11 @@
   :diminish whitespace-cleanup-mode
   :hook (after-init . global-whitespace-cleanup-mode))
 
+;; auto-detect indentation
+(use-package dtrt-indent
+  :diminish dtrt-indent-mode
+  :config
+  (dtrt-indent-mode t))
+
 (provide 'init-editing)
 ;;; init-editing.el ends here
