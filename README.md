@@ -11,6 +11,10 @@ This list is probably not definitive. If you find you need to install other
 things to get the config to work properly, please create an issue so I can add
 it to the list.
 
+- An Emacs server is auto-started when one is not already running, update your
+  `$EDITOR` environment variable to `emacsclient -c` (This also applies to
+  `$REACT_EDITOR` as well).
+
 - To enable all-the-icons in the modeline, install them through emacs with `M-x
   all-the-icons-install-fonts`.
 

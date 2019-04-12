@@ -12,6 +12,11 @@
 ;; custom config
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
+;; start emacs server when not running
+(if (and (fboundp 'server-running-p) 
+         (not (server-running-p)))
+   (server-start))
+
 ;; initial configs
 (require 'init-ui)
 (require 'init-elpa)
