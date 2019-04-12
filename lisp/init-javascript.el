@@ -18,12 +18,13 @@
   (js2-getprop-has-side-effects t))
 
 (use-package js2-refactor
-  :hook (js2-mode . js2-refactor-mode)
+  :hook ((js2-mode . js2-refactor-mode)
+         (web-mode . js2-refactor-mode))
   :config
   (js2r-add-keybindings-with-prefix "C-c C-r"))
 
-(use-package rjsx-mode
-  :mode "\\.jsx?\\'")
+;; (use-package rjsx-mode
+;;   :mode "\\.jsx?\\'")
 
 (use-package js-doc
   :bind (:map js2-refactor-mode-map
