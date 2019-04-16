@@ -39,7 +39,8 @@
   (js-doc-author (format "Wil Wilsman <%s>" js-doc-mail-address)))
 
 (use-package add-node-modules-path
-  :hook js2-mode)
+  :hook ((js2-mode . add-node-modules-path)
+         (web-mode . add-node-modules-path)))
 
 (use-package json-mode)
 
