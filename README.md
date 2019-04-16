@@ -24,6 +24,8 @@ it to the list.
 
 - To use spell-checking, install `ispell`: `brew install ispell`
 
+- To use [prettier](https://prettier.io/), install it: `npm install -g prettier`
+
 - To use ag, install `the_silver_searcher`: `brew install
   the_silver_searcher`
 
