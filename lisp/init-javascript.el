@@ -26,6 +26,10 @@
 ;; (use-package rjsx-mode
 ;;   :mode "\\.jsx?\\'")
 
+(use-package prettier-js
+  :hook ((js2-mode . prettier-js-mode)
+         (web-mode . prettier-js-mode)))
+
 (use-package js-doc
   :bind (:map js2-refactor-mode-map
          ("C-c C-r i d" . js-doc-insert-function-doc)
