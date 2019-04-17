@@ -26,10 +26,6 @@
 ;; (use-package rjsx-mode
 ;;   :mode "\\.jsx?\\'")
 
-(use-package prettier-js
-  :hook ((js2-mode . prettier-js-mode)
-         (web-mode . prettier-js-mode)))
-
 (use-package js-doc
   :bind (:map js2-refactor-mode-map
          ("C-c C-r i d" . js-doc-insert-function-doc)
@@ -43,6 +39,7 @@
          (web-mode . add-node-modules-path)))
 
 (use-package json-mode)
+(use-package prettier-js)
 
 ;; parse node stack traces in compilation buffers
 (require 'compile)
