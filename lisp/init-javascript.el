@@ -23,8 +23,9 @@
   :config
   (js2r-add-keybindings-with-prefix "C-c C-r"))
 
-;; (use-package rjsx-mode
-;;   :mode "\\.jsx?\\'")
+(use-package rjsx-mode
+  :pin melpa
+  :mode "\\.jsx?\\'")
 
 (use-package js-doc
   :bind (:map js2-refactor-mode-map
