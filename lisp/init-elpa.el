@@ -7,13 +7,13 @@
 (setq
  package-enable-at-startup nil
  package-archives
- '(("melpa-stable" . "https://stable.melpa.org/packages/")
-   ("melpa" . "https://melpa.org/packages/")
+ '(("melpa" . "https://melpa.org/packages/")
+   ("melpa-stable" . "https://stable.melpa.org/packages/")
    ;;("gnu" . "http://elpa.gnu.org/packages/"))
    ("gnu" . "http://mirrors.163.com/elpa/gnu/"))
  package-archive-priorities
- '(("melpa-stable" . 10)
-   ("melpa" . 5)
+ '(("melpa" . 10)
+   ("melpa-stable" . 5)
    ("gnu" . 0)))
 
 (eval-when-compile
