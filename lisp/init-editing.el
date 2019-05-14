@@ -40,6 +40,9 @@
 ;; delete selections
 (delete-selection-mode t)
 
+;; show matching parens
+(show-paren-mode 1)
+
 ;; scroll one line at a time
 (setq scroll-margin 0
       scroll-conservatively 100000
