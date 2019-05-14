@@ -103,6 +103,16 @@
   (crux-with-region-or-buffer indent-region)
   (crux-with-region-or-buffer untabify))
 
+(defun ww/toggle-indent-tabs-mode ()
+  "Toggle the 'indent-tabs-mode' variable."
+  (interactive)
+  (setq indent-tabs-mode (not indent-tabs-mode))
+  (message
+   (concat
+    "'indent-tabs-mode' is "
+    (or (and indent-tabs-mode "t") "nil"))))
+(bind-key "C-c t" `ww/toggle-indent-tabs-mode)
+
 ;; ability to restart emacs quickly
 (use-package restart-emacs)
 
