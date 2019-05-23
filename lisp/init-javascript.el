@@ -27,6 +27,11 @@
   :pin melpa
   :mode "\\.jsx?\\'")
 
+(use-package typescript-mode
+  :mode "\\.tsx?\\'"
+  :custom
+  (typescript-indent-level 2))
+
 (use-package js-doc
   :bind (:map js2-refactor-mode-map
          ("C-c C-r i d" . js-doc-insert-function-doc)
