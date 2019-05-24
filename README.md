@@ -37,3 +37,7 @@ it to the list.
   You might also want the [terminal
   plugin](https://github.com/git-time-metric/gtm-terminal-plugin) to track time
   spent in the terminal.
+
+- For GPG signing, pinentry is installed and automatically started. You'll have
+  to add `allow-emacs-pinentry` and `allow-loopback-pinentry` to `.gnupg/gpg-agent.conf`
+  then reload gpg-agent with `gpgconf --reload gpg-agent`.

@@ -17,5 +17,10 @@
   (global-diff-hl-mode t)
   (diff-hl-flydiff-mode))
 
+;; use pinentry for gpg
+(use-package pinentry
+  :config
+  (pinentry-start))
+
 (provide 'init-vcs)
 ;;; init-vcs.el ends here
