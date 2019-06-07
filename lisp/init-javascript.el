@@ -32,6 +32,21 @@
   :custom
   (typescript-indent-level 2))
 
+(use-package lsp-mode
+  :hook ((js2-mode . lsp)
+        (typescript-mode . lsp))
+  :custom
+  (lsp-prefer-flymake nil))
+
+(use-package company-lsp
+  :config
+  (push 'company-lsp company-backends))
+
+(use-package tide
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)))
+
 (use-package js-doc
   :bind (:map js2-refactor-mode-map
          ("C-c C-r i d" . js-doc-insert-function-doc)
