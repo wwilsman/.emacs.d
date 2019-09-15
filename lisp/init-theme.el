@@ -7,16 +7,16 @@
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
-;; custom base-16 theme based on onedark
+;; custom base-16 theme based on material palenight
 (use-package base16-theme
   :config
-  (load-theme 'base16-onedark t t)
+  (load-theme 'base16-material-palenight t t)
 
   (deftheme base16-custom)
-  (let ((base00 (plist-get base16-onedark-colors :base00))
-        (base08 (plist-get base16-onedark-colors :base08))
-        (base0B (plist-get base16-onedark-colors :base0B))
-        (base0E (plist-get base16-onedark-colors :base0E)))
+  (let ((base00 (plist-get base16-material-palenight-colors :base00))
+        (base08 (plist-get base16-material-palenight-colors :base08))
+        (base0B (plist-get base16-material-palenight-colors :base0B))
+        (base0E (plist-get base16-material-palenight-colors :base0E)))
     (custom-theme-set-faces
      'base16-custom
      `(fringe ((t (:background ,base00))))
@@ -35,7 +35,7 @@
      `(rjsx-tag ((t (:inherit font-lock-constant-face))))
      `(rjsx-attr ((t (:inherit font-lock-variable-name-face))))))
 
-  (enable-theme 'base16-onedark)
+  (enable-theme 'base16-material-palenight)
   (enable-theme 'base16-custom))
 
 ;; rainbow mode for colors
