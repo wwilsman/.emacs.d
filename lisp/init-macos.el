@@ -14,8 +14,7 @@
   (global-set-key [(super z)] 'undo)
 
   ;; show emojis
-  (if (fboundp 'set-fontset-font)
-      (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend))
+  (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
 
   ;; fix artist mode right click
   (eval-after-load 'artist'

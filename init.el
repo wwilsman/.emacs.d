@@ -13,7 +13,7 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; start emacs server when not running
-(if (and (fboundp 'server-running-p) 
+(if (and (fboundp 'server-running-p)
          (not (server-running-p)))
    (server-start))
 
@@ -45,6 +45,7 @@
 
 ;; font config changes font-faces so it is loaded after languages
 (require 'init-font)
+(require 'init-emojis)
 
 (provide 'init)
 ;;; init.el ends here
