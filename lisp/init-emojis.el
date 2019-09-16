@@ -9,6 +9,7 @@
   :commands global-emojify-mode
   :hook (after-init . global-emojify-mode)
   :custom
+  ;; change to 'image when multi-color fonts are not available
   (emojify-display-style 'unicode)
   (emojify-emoji-styles '(github))
   ;; https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json

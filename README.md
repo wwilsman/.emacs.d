@@ -22,6 +22,12 @@ it to the list.
   Operator Mono for cursive keywords. The config for these is only initialized
   when the fonts exist.
 
+- [Select GitHub-style emojis](https://gitmoji.carloscuesta.me/) are transformed
+  into real unicode emojis. If using official Emacs (without multi-color font
+  support), [update this line](https://github.com/wwilsman/emacs.d/blob/master/lisp/init-emojis.el#L12-L13).
+  Or install [`emacs-plus`](https://github.com/d12frosted/homebrew-emacs-plus)
+  which enables multi-color fonts, a.k.a. emoji fonts.
+
 - To use spell-checking, install `ispell`: `brew install ispell`
 
 - To use [prettier](https://prettier.io/), install it: `npm install -g prettier`
