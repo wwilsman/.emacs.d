@@ -33,8 +33,7 @@
   (typescript-indent-level 2))
 
 (use-package lsp-mode
-  :hook ((js2-mode . lsp)
-        (typescript-mode . lsp))
+  :hook ((typescript-mode . lsp))
   :custom
   (lsp-prefer-flymake nil))
 
