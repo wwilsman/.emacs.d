@@ -165,14 +165,6 @@
   :bind (("M-p" . move-text-up)
          ("M-n" . move-text-down)))
 
-;; auto-detect indentation
-(use-package dtrt-indent
-  :hook (prog-mode . dtrt-indent-mode)
-  :commands dtrt-indent-mode
-  :diminish dtrt-indent-mode
-  :config
-  (dtrt-indent-mode t))
-
 ;; smart trim whitespace
 (use-package whitespace-cleanup-mode
   :diminish whitespace-cleanup-mode
