@@ -42,7 +42,7 @@
   (push 'company-lsp company-backends))
 
 (use-package tide
-  :after (typescript-mode company flycheck)
+  :after (typescript-mode company)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)))
 
