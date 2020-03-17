@@ -42,6 +42,7 @@
 (require 'init-web)
 (require 'init-javascript)
 (require 'init-markdown)
+(require 'init-c)
 
 ;; font config changes font-faces so it is loaded after languages
 (require 'init-font)
