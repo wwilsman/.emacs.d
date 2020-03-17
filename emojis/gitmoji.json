@@ -5,10 +5,20 @@
     "unicode": "🎨",
     "name": "Improving structure / format of the code"
   },
+  "🎨": {
+    "style": "unicode",
+    "image": "1f3a8.png",
+    "name": "Improving structure / format of the code"
+  },
   ":zap:": {
     "style": "github",
     "image": "26a1.png",
     "unicode": "⚡️",
+    "name": "Improving performance"
+  },
+  "⚡️": {
+    "style": "unicode",
+    "image": "26a1.png",
     "name": "Improving performance"
   },
   ":fire:": {
@@ -17,10 +27,20 @@
     "unicode": "🔥",
     "name": "Removing code or files"
   },
+  "🔥": {
+    "style": "unicode",
+    "image": "1f525.png",
+    "name": "Removing code or files"
+  },
   ":bug:": {
     "style": "github",
     "image": "1f41b.png",
     "unicode": "🐛",
+    "name": "Fixing a bug"
+  },
+  "🐛": {
+    "style": "unicode",
+    "image": "1f41b.png",
     "name": "Fixing a bug"
   },
   ":ambulance:": {
@@ -29,10 +49,20 @@
     "unicode": "🚑",
     "name": "Critical hotfix"
   },
+  "🚑": {
+    "style": "unicode",
+    "image": "1f691.png",
+    "name": "Critical hotfix"
+  },
   ":sparkles:": {
     "style": "github",
     "image": "2728.png",
     "unicode": "✨",
+    "name": "Introducing new features"
+  },
+  "✨": {
+    "style": "unicode",
+    "image": "2728.png",
     "name": "Introducing new features"
   },
   ":pencil:": {
@@ -41,10 +71,20 @@
     "unicode": "📝",
     "name": "Writing docs"
   },
+  "📝": {
+    "style": "unicode",
+    "image": "1f4dd.png",
+    "name": "Writing docs"
+  },
   ":rocket:": {
     "style": "github",
     "image": "1f680.png",
     "unicode": "🚀",
+    "name": "Deploying stuff"
+  },
+  "🚀": {
+    "style": "unicode",
+    "image": "1f680.png",
     "name": "Deploying stuff"
   },
   ":lipstick:": {
@@ -53,10 +93,20 @@
     "unicode": "💄",
     "name": "Updating the UI and style files"
   },
+  "💄": {
+    "style": "unicode",
+    "image": "1f484.png",
+    "name": "Updating the UI and style files"
+  },
   ":tada:": {
     "style": "github",
     "image": "1f389.png",
     "unicode": "🎉",
+    "name": "Initial commit"
+  },
+  "🎉": {
+    "style": "unicode",
+    "image": "1f389.png",
     "name": "Initial commit"
   },
   ":white_check_mark:": {
@@ -65,10 +115,20 @@
     "unicode": "✅",
     "name": "Updating tests"
   },
+  "✅": {
+    "style": "unicode",
+    "image": "2705.png",
+    "name": "Updating tests"
+  },
   ":lock:": {
     "style": "github",
     "image": "1f512.png",
     "unicode": "🔒",
+    "name": "Fixing security issues"
+  },
+  "🔒": {
+    "style": "unicode",
+    "image": "1f512.png",
     "name": "Fixing security issues"
   },
   ":apple:": {
@@ -77,10 +137,20 @@
     "unicode": "🍎",
     "name": "Fixing something on macOS"
   },
+  "🍎": {
+    "style": "unicode",
+    "image": "1f34e.png",
+    "name": "Fixing something on macOS"
+  },
   ":penguin:": {
     "style": "github",
     "image": "1f427.png",
     "unicode": "🐧",
+    "name": "Fixing something on Linux"
+  },
+  "🐧": {
+    "style": "unicode",
+    "image": "1f427.png",
     "name": "Fixing something on Linux"
   },
   ":checkered_flag:": {
@@ -89,10 +159,20 @@
     "unicode": "🏁",
     "name": "Fixing something on Windows"
   },
+  "🏁": {
+    "style": "unicode",
+    "image": "1f3c1.png",
+    "name": "Fixing something on Windows"
+  },
   ":robot:": {
     "style": "github",
     "image": "1f916.png",
     "unicode": "🤖",
+    "name": "Fixing something on Android"
+  },
+  "🤖": {
+    "style": "unicode",
+    "image": "1f916.png",
     "name": "Fixing something on Android"
   },
   ":green_apple:": {
@@ -101,10 +181,20 @@
     "unicode": "🍏",
     "name": "Fixing something on iOS"
   },
+  "🍏": {
+    "style": "unicode",
+    "image": "1f34f.png",
+    "name": "Fixing something on iOS"
+  },
   ":bookmark:": {
     "style": "github",
     "image": "1f516.png",
     "unicode": "🔖",
+    "name": "Releasing / Version tags"
+  },
+  "🔖": {
+    "style": "unicode",
+    "image": "1f516.png",
     "name": "Releasing / Version tags"
   },
   ":rotating_light:": {
@@ -113,10 +203,20 @@
     "unicode": "🚨",
     "name": "Removing linter warnings"
   },
+  "🚨": {
+    "style": "unicode",
+    "image": "1f6a8.png",
+    "name": "Removing linter warnings"
+  },
   ":construction:": {
     "style": "github",
     "image": "1f6a7.png",
     "unicode": "🚧",
+    "name": "Work in progress"
+  },
+  "🚧": {
+    "style": "unicode",
+    "image": "1f6a7.png",
     "name": "Work in progress"
   },
   ":green_heart:": {
@@ -125,10 +225,20 @@
     "unicode": "💚",
     "name": "Fixing CI Build"
   },
+  "💚": {
+    "style": "unicode",
+    "image": "1f49a.png",
+    "name": "Fixing CI Build"
+  },
   ":arrow_down:": {
     "style": "github",
     "image": "2b07.png",
     "unicode": "⬇️",
+    "name": "Downgrading dependencies"
+  },
+  "⬇️": {
+    "style": "unicode",
+    "image": "2b07.png",
     "name": "Downgrading dependencies"
   },
   ":arrow_up:": {
@@ -137,10 +247,20 @@
     "unicode": "⬆️",
     "name": "Upgrading dependencies"
   },
+  "⬆️": {
+    "style": "unicode",
+    "image": "2b06.png",
+    "name": "Upgrading dependencies"
+  },
   ":pushpin:": {
     "style": "github",
     "image": "1F4CC.png",
     "unicode": "📌",
+    "name": "Pinning dependencies to specific versions"
+  },
+  "📌": {
+    "style": "unicode",
+    "image": "1F4CC.png",
     "name": "Pinning dependencies to specific versions"
   },
   ":construction_worker:": {
@@ -149,9 +269,20 @@
     "unicode": "👷",
     "name": "Adding CI build system"
   },
+  "👷": {
+    "style": "unicode",
+    "image": "1f477.png",
+    "name": "Adding CI build system"
+  },
   ":chart_with_upwards_trend:": {
     "style": "github",
+    "image": "1f4c8.png",
     "unicode": "📈",
+    "name": "Adding analytics or tracking code"
+  },
+  "📈": {
+    "style": "unicode",
+    "image": "1f4c8.png",
     "name": "Adding analytics or tracking code"
   },
   ":recycle:": {
@@ -160,10 +291,20 @@
     "unicode": "♻️",
     "name": "Refactoring code"
   },
+  "♻️": {
+    "style": "unicode",
+    "image": "2672.png",
+    "name": "Refactoring code"
+  },
   ":whale:": {
     "style": "github",
     "image": "1f433.png",
     "unicode": "🐳",
+    "name": "Work about Docker"
+  },
+  "🐳": {
+    "style": "unicode",
+    "image": "1f433.png",
     "name": "Work about Docker"
   },
   ":heavy_plus_sign:": {
@@ -172,10 +313,20 @@
     "unicode": "➕",
     "name": "Adding a dependency"
   },
+  "➕": {
+    "style": "unicode",
+    "image": "2795.png",
+    "name": "Adding a dependency"
+  },
   ":heavy_minus_sign:": {
     "style": "github",
     "image": "2796.png",
     "unicode": "➖",
+    "name": "Removing a dependency"
+  },
+  "➖": {
+    "style": "unicode",
+    "image": "2796.png",
     "name": "Removing a dependency"
   },
   ":wrench:": {
@@ -184,10 +335,20 @@
     "unicode": "🔧",
     "name": "Changing configuration files"
   },
+  "🔧": {
+    "style": "unicode",
+    "image": "1f527.png",
+    "name": "Changing configuration files"
+  },
   ":globe_with_meridians:": {
     "style": "github",
     "image": "1f310.png",
     "unicode": "🌐",
+    "name": "Internationalization and localization"
+  },
+  "🌐": {
+    "style": "unicode",
+    "image": "1f310.png",
     "name": "Internationalization and localization"
   },
   ":pencil2:": {
@@ -196,10 +357,20 @@
     "unicode": "✏️",
     "name": "Fixing typos"
   },
+  "✏️": {
+    "style": "unicode",
+    "image": "270f.png",
+    "name": "Fixing typos"
+  },
   ":poop:": {
     "style": "github",
     "image": "1f4a9.png",
     "unicode": "💩",
+    "name": "Writing bad code that needs to be improved"
+  },
+  "💩": {
+    "style": "unicode",
+    "image": "1f4a9.png",
     "name": "Writing bad code that needs to be improved"
   },
   ":rewind:": {
@@ -208,10 +379,20 @@
     "unicode": "⏪",
     "name": "Reverting changes"
   },
+  "⏪": {
+    "style": "unicode",
+    "image": "23ea.png",
+    "name": "Reverting changes"
+  },
   ":twisted_rightwards_arrows:": {
     "style": "github",
     "image": "1f500.png",
     "unicode": "🔀",
+    "name": "Merging branches"
+  },
+  "🔀": {
+    "style": "unicode",
+    "image": "1f500.png",
     "name": "Merging branches"
   },
   ":package:": {
@@ -220,10 +401,20 @@
     "unicode": "📦",
     "name": "Updating compiled files or packages"
   },
+  "📦": {
+    "style": "unicode",
+    "image": "1f4e6.png",
+    "name": "Updating compiled files or packages"
+  },
   ":alien:": {
     "style": "github",
     "image": "1f47d.png",
     "unicode": "👽",
+    "name": "Updating code due to external API changes"
+  },
+  "👽": {
+    "style": "unicode",
+    "image": "1f47d.png",
     "name": "Updating code due to external API changes"
   },
   ":truck:": {
@@ -232,10 +423,20 @@
     "unicode": "🚚",
     "name": "Moving or renaming files"
   },
+  "🚚": {
+    "style": "unicode",
+    "image": "1f69a.png",
+    "name": "Moving or renaming files"
+  },
   ":page_facing_up:": {
     "style": "github",
     "image": "1f4c4.png",
     "unicode": "📄",
+    "name": "Adding or updating license"
+  },
+  "📄": {
+    "style": "unicode",
+    "image": "1f4c4.png",
     "name": "Adding or updating license"
   },
   ":boom:": {
@@ -244,10 +445,20 @@
     "unicode": "💥",
     "name": "Introducing breaking changes"
   },
+  "💥": {
+    "style": "unicode",
+    "image": "1f4a5.png",
+    "name": "Introducing breaking changes"
+  },
   ":bento:": {
     "style": "github",
     "image": "1f371.png",
     "unicode": "🍱",
+    "name": "Adding or updating assets"
+  },
+  "🍱": {
+    "style": "unicode",
+    "image": "1f371.png",
     "name": "Adding or updating assets"
   },
   ":ok_hand:": {
@@ -256,10 +467,20 @@
     "unicode": "👌",
     "name": "Updating code due to code review changes"
   },
+  "👌": {
+    "style": "unicode",
+    "image": "1f44c.png",
+    "name": "Updating code due to code review changes"
+  },
   ":wheelchair:": {
     "style": "github",
     "image": "267f.png",
     "unicode": "♿️",
+    "name": "Improving accessibility"
+  },
+  "♿️": {
+    "style": "unicode",
+    "image": "267f.png",
     "name": "Improving accessibility"
   },
   ":bulb:": {
@@ -268,10 +489,20 @@
     "unicode": "💡",
     "name": "Documenting source code"
   },
+  "💡": {
+    "style": "unicode",
+    "image": "1f4a1.png",
+    "name": "Documenting source code"
+  },
   ":beers:": {
     "style": "github",
     "image": "1f37b.png",
     "unicode": "🍻",
+    "name": "Writing code drunkenly"
+  },
+  "🍻": {
+    "style": "unicode",
+    "image": "1f37b.png",
     "name": "Writing code drunkenly"
   },
   ":speech_balloon:": {
@@ -280,10 +511,20 @@
     "unicode": "💬",
     "name": "Updating text and literals"
   },
+  "💬": {
+    "style": "unicode",
+    "image": "1f4ac.png",
+    "name": "Updating text and literals"
+  },
   ":card_file_box:": {
     "style": "github",
     "image": "1f5c3.png",
     "unicode": "🗃",
+    "name": "Performing database related changes"
+  },
+  "🗃": {
+    "style": "unicode",
+    "image": "1f5c3.png",
     "name": "Performing database related changes"
   },
   ":loud_sound:": {
@@ -292,10 +533,20 @@
     "unicode": "🔊",
     "name": "Adding logs"
   },
+  "🔊": {
+    "style": "unicode",
+    "image": "1f50a.png",
+    "name": "Adding logs"
+  },
   ":mute:": {
     "style": "github",
     "image": "1f507.png",
     "unicode": "🔇",
+    "name": "Removing logs"
+  },
+  "🔇": {
+    "style": "unicode",
+    "image": "1f507.png",
     "name": "Removing logs"
   },
   ":busts_in_silhouette:": {
@@ -304,10 +555,20 @@
     "unicode": "👥",
     "name": "Adding contributor(s)"
   },
+  "👥": {
+    "style": "unicode",
+    "image": "1f464.png",
+    "name": "Adding contributor(s)"
+  },
   ":children_crossing:": {
     "style": "github",
     "image": "1f6b8.png",
     "unicode": "🚸",
+    "name": "Improving user experience / usability"
+  },
+  "🚸": {
+    "style": "unicode",
+    "image": "1f6b8.png",
     "name": "Improving user experience / usability"
   },
   ":building_construction:": {
@@ -316,10 +577,20 @@
     "unicode": "🏗",
     "name": "Making architectural changes"
   },
+  "🏗": {
+    "style": "unicode",
+    "image": "1f3d7.png",
+    "name": "Making architectural changes"
+  },
   ":iphone:": {
     "style": "github",
     "image": "1f4f1.png",
     "unicode": "📱",
+    "name": "Working on responsive design"
+  },
+  "📱": {
+    "style": "unicode",
+    "image": "1f4f1.png",
     "name": "Working on responsive design"
   },
   ":clown_face:": {
@@ -328,10 +599,20 @@
     "unicode": "🤡",
     "name": "Mocking things"
   },
+  "🤡": {
+    "style": "unicode",
+    "image": "1f921.png",
+    "name": "Mocking things"
+  },
   ":egg:": {
     "style": "github",
     "image": "1f95a.png",
     "unicode": "🥚",
+    "name": "Adding an easter egg"
+  },
+  "🥚": {
+    "style": "unicode",
+    "image": "1f95a.png",
     "name": "Adding an easter egg"
   },
   ":see_no_evil:": {
@@ -340,10 +621,20 @@
     "unicode": "🙈",
     "name": "Adding or updating a .gitignore file"
   },
+  "🙈": {
+    "style": "unicode",
+    "image": "1f648.png",
+    "name": "Adding or updating a .gitignore file"
+  },
   ":camera_flash:": {
     "style": "github",
     "image": "1f4f8.png",
     "unicode": "📸",
+    "name": "Adding or updating snapshots"
+  },
+  "📸": {
+    "style": "unicode",
+    "image": "1f4f8.png",
     "name": "Adding or updating snapshots"
   },
   ":alembic:": {
@@ -352,10 +643,20 @@
     "unicode": "⚗",
     "name": "Experimenting new things"
   },
+  "⚗": {
+    "style": "unicode",
+    "image": "2697.png",
+    "name": "Experimenting new things"
+  },
   ":mag:": {
     "style": "github",
     "image": "1f50d.png",
     "unicode": "🔍",
+    "name": "Improving SEO"
+  },
+  "🔍": {
+    "style": "unicode",
+    "image": "1f50d.png",
     "name": "Improving SEO"
   },
   ":wheel_of_dharma:": {
@@ -364,16 +665,21 @@
     "unicode": "☸️",
     "name": "Work about Kubernetes"
   },
+  "☸️": {
+    "style": "unicode",
+    "image": "2638.png",
+    "name": "Work about Kubernetes"
+  },
   ":label:": {
     "style": "github",
     "image": "1f3f7.png",
     "unicode": "🏷️",
     "name": "Adding or updating types (Flow, TypeScript)"
   },
-  "🐛": {
+  "🏷️": {
     "style": "unicode",
-    "image": "1f41b.png",
-    "name": "At least 1 unicode required or Emojify is slow"
+    "image": "1f3f7.png",
+    "name": "Adding or updating types (Flow, TypeScript)"
   },
   ">:(": {
     "style": "ascii",
