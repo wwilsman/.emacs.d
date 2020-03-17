@@ -15,7 +15,11 @@
   (js2-mode-show-parse-errors nil)
   (js2-mode-show-strict-warnings nil)
   (js2-mode-strict-inconsistent-return-warning nil)
-  (js2-getprop-has-side-effects t))
+  (js2-getprop-has-side-effects t)
+  :config
+  ;; support for private fields
+  (advice-add #'js2-identifier-start-p :after-until
+              (lambda (c) (eq c ?#))))
 
 (use-package js2-refactor
   :hook ((js2-mode . js2-refactor-mode)
