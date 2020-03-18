@@ -8,6 +8,10 @@
   (multi-term-program "/bin/zsh")
   (term-suppress-hard-newline t)
   :config
+  (add-hook
+   'term-mode-hook
+   (lambda ()
+     (define-key term-raw-map (kbd "C-z") 'self-insert-command)))
   (defun projectile-run-term ()
     "Get dedicated multi-term in project root"
     (interactive)
