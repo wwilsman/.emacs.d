@@ -7,5 +7,9 @@
   :mode ("\\.md\\'" . gfm-mode)
   :hook (markdown-mode . auto-fill-mode))
 
+(use-package grip-mode
+  :bind (:map markdown-mode-command-map
+         ("g" . grip-mode)))
+
 (provide 'init-markdown)
 ;;; init-markdown.el ends here
