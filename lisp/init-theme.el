@@ -10,6 +10,7 @@
 ;; custom base-16 theme based on material palenight
 (use-package base16-theme
   :config
+  (setq base16-theme-256-color-source 'colors)
   (load-theme 'base16-material-palenight t t)
 
   (deftheme base16-custom)
