@@ -47,3 +47,16 @@ it to the list.
 - For GPG signing, pinentry is installed and automatically started. You'll have
   to add `allow-emacs-pinentry` and `allow-loopback-pinentry` to `.gnupg/gpg-agent.conf`
   then reload gpg-agent with `gpgconf --reload gpg-agent`.
+
+### Running from a TTY
+
+- To get theme colors to display correctly, [a custom display
+  definition](https://www.gnu.org/software/emacs/manual/html_mono/efaq.html#Colors-on-a-TTY)
+  must be provided (`terminfo-24bit.src`).
+
+  Compile it and use the `TERM` environment variable:
+
+  ```ssh-session
+  $ tic -x -o ~/.terminfo terminfo-24bit.src
+  $ TERM=xterm-24bits emacs -nw
+  ```
