@@ -1,7 +1,7 @@
 ;;; init-editing.el --- Editing utils
 ;;; Commentary:
 ;;; Code:
-(require 'use-package)
+(require 'quelpa-use-package)
 
 ;; spaces > tabs
 (setq-default indent-tabs-mode nil
@@ -169,6 +169,12 @@
 (use-package whitespace-cleanup-mode
   :diminish whitespace-cleanup-mode
   :hook (after-init . global-whitespace-cleanup-mode))
+
+;; expand region
+(use-package expand-region
+  :ensure nil ; quelpa will take care of this
+  :quelpa (dired+ :fetcher github :repo "magnars/expand-region.el")
+  :bind (("C-=" . er/expand-region)))
 
 (provide 'init-editing)
 ;;; init-editing.el ends here
