@@ -23,5 +23,13 @@
         (multi-term)
         (rename-buffer projectile--proj-term-name)))))
 
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (defun track-mouse (e))
+  (setq mouse-sel-mode t)
+  (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
+  (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
+
 (provide 'init-term)
 ;;; init-term.el ends here
