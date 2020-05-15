@@ -60,3 +60,14 @@ it to the list.
   $ tic -x -o ~/.terminfo terminfo-24bit.src
   $ TERM=xterm-24bits emacs -nw
   ```
+
+### Starting a daemon on login for MacOS
+
+If emacs isn't left open in the background on your machine, the emacs server
+will shutdown when the last instance of emacs is shutdown. To start this server
+on login so emacs is always loaded and ready to go, run the following commands:
+
+``` ssh-session
+$ cp ~/.emacs.d/gnu.emacs.daemon.plist ~/Library/LaunchAgents/gnu.emacs.daemon.plist
+$ launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
+```
