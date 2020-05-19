@@ -159,6 +159,9 @@
          ("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)))
+(use-package mc-modal-mode
+  :ensure nil ; already in load-path
+  :bind (("C-c ." . mc-modal-mode)))
 
 ;; move lines
 (use-package move-text
