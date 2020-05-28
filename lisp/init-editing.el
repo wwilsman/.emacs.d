@@ -74,6 +74,11 @@
 ;; autosave when focus is lost
 (add-hook 'focus-out-hook (lambda () (when buffer-file-name (save-buffer))))
 
+;; xref enter as tab
+(use-package xref
+  :bind (:map xref--xref-buffer-mode-map
+         ("<return>" . xref-quit-and-goto-xref)))
+
 ;; key-chords
 (use-package use-package-chords
   :config (key-chord-mode 1))

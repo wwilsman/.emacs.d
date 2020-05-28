@@ -17,6 +17,7 @@
   (js2-mode-strict-inconsistent-return-warning nil)
   (js2-getprop-has-side-effects t)
   :config
+  (define-key js2-mode-map (kbd "M-.") nil)
   ;; support for private fields
   (advice-add #'js2-identifier-start-p :after-until
               (lambda (c) (eq c ?#))))
@@ -26,6 +27,10 @@
          (web-mode . js2-refactor-mode))
   :config
   (js2r-add-keybindings-with-prefix "C-c C-r"))
+
+(use-package xref-js2
+  :hook ((js2-mode . (lambda ()
+    (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))))
 
 (use-package rjsx-mode
   :pin melpa
