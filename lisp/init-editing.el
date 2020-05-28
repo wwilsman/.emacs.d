@@ -9,7 +9,7 @@
               tab-width 2)
 
 ;; default fill-column
-(setq-default fill-column 80)
+(setq-default fill-column 100)
 
 ;; show trailing whitespace in prog-mode
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
