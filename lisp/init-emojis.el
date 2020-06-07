@@ -11,7 +11,7 @@
   :custom
   ;; change to 'image when multi-color fonts are not available
   (emojify-display-style 'unicode)
-  (emojify-emoji-styles '(unicode))
+  (emojify-emoji-styles '(unicode github))
   ;; https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json
   (emojify-emoji-json (expand-file-name "emojis/gitmoji.json" user-emacs-directory))
   :config
