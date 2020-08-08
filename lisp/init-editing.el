@@ -181,7 +181,7 @@
 ;; expand region
 (use-package expand-region
   :ensure nil ; quelpa will take care of this
-  :quelpa (dired+ :fetcher github :repo "magnars/expand-region.el")
+  :quelpa (expand-region :fetcher github :repo "magnars/expand-region.el")
   :bind (("C-=" . er/expand-region)))
 
 (provide 'init-editing)

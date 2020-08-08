@@ -6,7 +6,7 @@
 
 (use-package dired+
   :ensure nil ; quelpa will take care of this
-  :quelpa (dired+ :fetcher wiki)
+  :quelpa (dired+ :fetcher github :repo "emacsmirror/dired-plus")
   :custom
   (diredp-hide-details-initially-flag nil)
   (diredp-hide-details-propagate-flag nil)
