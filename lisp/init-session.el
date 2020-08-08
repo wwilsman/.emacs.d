@@ -11,7 +11,7 @@
       desktop-path (list desktop-dirname)
       desktop-save t
       desktop-restore-frames t
-      desktop-load-locked-desktop nil
+      desktop-load-locked-desktop t
       desktop-auto-save-timeout 30)
 (desktop-save-mode 1)
 
