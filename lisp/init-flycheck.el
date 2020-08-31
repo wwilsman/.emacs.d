@@ -7,7 +7,6 @@
   :diminish flycheck-mode
   :custom
   (flycheck-indication-mode 'right-fringe)
-  :hook ((typescript-mode . (lambda () (flycheck-mode -1))))
   :config
   ;; make the flycheck arror look like an exclamation point
   (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
