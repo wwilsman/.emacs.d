@@ -9,14 +9,9 @@
 ;; use super for switching between visible windows
 (windmove-default-keybindings 'super)
 
-;; prefer horizontal splitting
-(setq split-height-threshold nil)
-
-;; adjust the split-width threshold on resize
-(defun ww/adjust-split-width-threshold ()
-  "Change the split-width threshold to 1px greater than half the frame width."
-  (setq split-width-threshold (+ 1 (/ (frame-width) 2))))
-(add-hook 'window-configuration-change-hook 'ww/adjust-split-width-threshold)
+;; sensible window splitting thesholds
+(setq split-height-threshold 20)
+(setq split-width-threshold 80)
 
 ;; use custom vertical split function
 (defun ww/v-split-last-buffer ()
