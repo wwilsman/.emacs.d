@@ -42,18 +42,12 @@
   (typescript-indent-level 2))
 
 (use-package lsp-mode
-  :hook ((typescript-mode . lsp))
-  :custom
-  (lsp-prefer-flymake nil))
-
-(use-package company-lsp
-  :config
-  (push 'company-lsp company-backends))
-
-(use-package tide
-  :after (typescript-mode company)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)))
+  :hook ((typescript-mode . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands (lsp lsp-deferred))
+(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 (use-package js-doc
   :bind (:map js2-refactor-mode-map
