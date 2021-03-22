@@ -29,8 +29,8 @@ Disable 'clean-buffer-list' with (cancel-timer clean-buffer-list-timer).")
 (setq
  ;; kill buffers if they were last touched more than 15 minutes ago
  clean-buffer-list-delay-special 900
- ;; run clean-buffer-list every 2 hours
- clean-buffer-list-timer (run-at-time t 7200 'clean-buffer-list)
+ ;; run clean-buffer-list once a day
+ clean-buffer-list-timer (run-at-time t 86400 'clean-buffer-list)
  ;; kill everything, clean-buffer-list is very intelligent at not killing unsaved buffers
  clean-buffer-list-kill-regexps '("^.*$")
  ;; always keep these buffer alive
