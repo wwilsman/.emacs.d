@@ -7,12 +7,14 @@
 
 (setq inhibit-startup-screen t)
 
-(tool-bar-mode -1)
 (menu-bar-mode -1)
-(scroll-bar-mode -1)
 (blink-cursor-mode -1)
 (set-window-margins nil nil)
-(fringe-mode `(2 . 8))
+
+(when window-system
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (fringe-mode `(2 . 8)))
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
