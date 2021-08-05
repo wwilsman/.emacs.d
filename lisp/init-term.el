@@ -31,5 +31,7 @@
   (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
   (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
 
+(setq shell-file-name "/bin/zsh")
+
 (provide 'init-term)
 ;;; init-term.el ends here
