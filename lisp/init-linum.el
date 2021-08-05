@@ -10,6 +10,7 @@
     (propertize (format (format " %%%dd " w) line) 'face 'linum)))
 (setq linum-format 'ww/linum-format)
 (add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'markdown-mode-hook 'linum-mode)
 
 ;; highlight line numbers
 (use-package hlinum
