@@ -9,9 +9,20 @@
 ;; use super for switching between visible windows
 (windmove-default-keybindings 'super)
 
-;; sensible window splitting thesholds
-(setq split-height-threshold 20)
-(setq split-width-threshold 80)
+;; better sensible window splitting
+(setq split-height-threshold 120
+      split-width-threshold 160)
+
+(defun ww/split-window-sensibly (&optional window)
+  "Replacement `split-window-sensibly' function which prefers vertical splits for WINDOW."
+  (interactive)
+  (let ((window (or window (selected-window))))
+    (or (and (window-splittable-p window t)
+             (with-selected-window window (split-window-right)))
+        (and (window-splittable-p window)
+             (with-selected-window window (split-window-below))))))
+
+(setq split-window-preferred-function #'ww/split-window-sensibly)
 
 ;; use custom vertical split function
 (defun ww/v-split-last-buffer ()
