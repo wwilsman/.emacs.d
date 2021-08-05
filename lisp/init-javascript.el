@@ -3,6 +3,9 @@
 ;;; Code:
 (require 'use-package)
 
+;; required for some shell commands
+(setenv "NPM_TOKEN" "")
+
 (use-package js2-mode
   :custom
   (sgml-basic-offset 2)
