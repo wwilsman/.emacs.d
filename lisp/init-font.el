@@ -1,7 +1,6 @@
 ;;; init-font.el --- Font settings
 ;;; Commentary:
 ;;; Code:
-(setq-default line-spacing 0.4)
 
 ;; set up font + ligatures
 (defun ww/init-font ()
@@ -46,7 +45,7 @@
     (set-face-italic 'font-lock-type-face t)
     (set-face-italic 'font-lock-function-name-face t)
 
-    ;; set web-mode specific face-attributes
+    ;; mode specific attributes
     (defun ww/web-mode-face-attributes ()
       "Set font face attributes for web-mode."
       (set-face-italic 'web-mode-html-attr-name-face t)
@@ -54,11 +53,16 @@
       (set-face-italic 'web-mode-css-pseudo-class-face t))
     (add-hook 'web-mode-hook 'ww/web-mode-face-attributes)
 
-    ;; set rjsx-mode specific face-attributes
     (defun ww/rjsx-mode-face-attributes ()
       "Set font face attributes for rjsx-mode."
       (set-face-italic 'rjsx-attr t))
-    (add-hook 'rjsx-mode-hook 'ww/rjsx-mode-face-attributes)))
+    (add-hook 'rjsx-mode-hook 'ww/rjsx-mode-face-attributes)
+
+    (defun ww/adjust-line-spacing ()
+      "Set font line-spacing for specific modes."
+      (setq line-spacing 0.2))
+    (add-hook 'text-mode-hook 'ww/adjust-line-spacing)
+    (add-hook 'prog-mode-hook 'ww/adjust-line-spacing)))
 
 ;; in deamons, register font init after frame creation
 (if (not (daemonp)) (ww/init-font)

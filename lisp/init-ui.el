@@ -2,10 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq-default line-spacing 0.625
-              tab-width 2)
+(setq-default tab-width 2)
 
-(setq inhibit-startup-screen t)
+(setq inhibit-startup-screen t
+      max-mini-window-height 0.3)
 
 (menu-bar-mode -1)
 (blink-cursor-mode -1)
