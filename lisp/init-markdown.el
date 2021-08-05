@@ -8,6 +8,10 @@
   :hook (markdown-mode . auto-fill-mode))
 
 (use-package grip-mode
+  :demand t
+  :after (markdown-mode)
+  :custom
+  (grip-preview-use-webkit (featurep 'xwidget-internal))
   :bind (:map markdown-mode-command-map
          ("g" . grip-mode)))
 
