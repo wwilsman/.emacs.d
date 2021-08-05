@@ -13,9 +13,6 @@
                   (lambda () (interactive) (delete-window)))
   (global-set-key [(super z)] 'undo)
 
-  ;; show emojis
-  (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
-
   ;; fix artist mode right click
   (eval-after-load 'artist'
   '(define-key
