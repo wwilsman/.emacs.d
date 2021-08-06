@@ -116,7 +116,7 @@
    (concat
     "'indent-tabs-mode' is "
     (or (and indent-tabs-mode "t") "nil"))))
-(bind-key "C-c t" `ww/toggle-indent-tabs-mode)
+(bind-key "C-c <tab>" `ww/toggle-indent-tabs-mode)
 
 ;; ability to restart emacs quickly
 (use-package restart-emacs)
