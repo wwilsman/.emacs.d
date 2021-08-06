@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)
+(require 'util)
 
 (setq shell-file-name "/bin/zsh"
       explicit-shell-file-name "/bin/zsh")
@@ -27,13 +28,15 @@
         (multi-term)
         (rename-buffer projectile--proj-term-name)))))
 
-(unless window-system
-  (require 'mouse)
-  (xterm-mouse-mode t)
-  (defun track-mouse (e))
-  (setq mouse-sel-mode t)
-  (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
-  (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
+(ww/after-daemon-frame
+ (lambda ()
+   (unless (display-mouse-p)
+     (require 'mouse)
+     (xterm-mouse-mode t)
+     (defun track-mouse (e))
+     (setq mouse-sel-mode t)
+     (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
+     (global-set-key (kbd "<mouse-5>") 'scroll-up-line))))
 
 (provide 'init-term)
 ;;; init-term.el ends here

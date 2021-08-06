@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)
+(require 'util)
 
 ;; mode line modes
 (line-number-mode t)
@@ -10,7 +11,10 @@
 
 (use-package spaceline
   :init
-  (unless window-system (spaceline-emacs-theme)))
+  (ww/after-daemon-frame
+   (lambda ()
+     (unless (display-graphic-p)
+       (spaceline-emacs-theme)))))
 
 (use-package spaceline-all-the-icons
   :custom
@@ -38,7 +42,10 @@ Uses diff-hl as oppose to the default git-gutter functions."
       (cl-reduce 'ww/diff-hl-reducer (diff-hl-changes) :initial-value '(0 0 0)))
      (t '(0 0 0))))
 
-  (if window-system (spaceline-all-the-icons-theme)))
+  (ww/after-daemon-frame
+   (lambda ()
+     (if (display-graphic-p)
+       (spaceline-all-the-icons-theme)))))
 
 (provide 'init-modeline)
 ;;; init-modeline.el ends here
