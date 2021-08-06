@@ -7,6 +7,7 @@
       explicit-shell-file-name "/bin/zsh")
 
 (use-package multi-term
+  :bind (("C-c C-t" . multi-term))
   :custom
   (multi-term-program "/bin/zsh")
   (term-suppress-hard-newline t)
