@@ -17,7 +17,8 @@
             (lambda (frame) (select-frame frame) (ww/init-emojis))))
 
 (use-package gitmoji
-  :ensure nil) ; already in load-path
+  :ensure nil ;; already in load-path
+  :chords (("xg" . gitmoji-insert)))
 
 (provide 'init-emojis)
 ;;; init-emojis.el ends here
