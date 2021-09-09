@@ -15,7 +15,7 @@
 ;; start emacs server when not running
 (if (and (fboundp 'server-running-p)
          (not (server-running-p)))
-   (server-start))
+    (server-start))
 
 ;; initial configs
 (require 'init-ui)
@@ -29,14 +29,14 @@
 (require 'init-windowing)
 (require 'init-editing)
 (require 'init-session)
-(require 'init-completion)
+(require 'init-minibuffer)
 (require 'init-projectile)
-(require 'init-modeline)
+(require 'nano-modeline)
 (require 'init-flycheck)
 (require 'init-term)
 (require 'init-dired)
 (require 'init-vcs)
-(require 'init-tracking)
+;(require 'init-tracking)
 
 ;; language specific configs
 (require 'init-web)
@@ -46,8 +46,8 @@
 (require 'init-c)
 
 ;; font config changes font-faces so it is loaded after languages
-(require 'init-font)
 (require 'init-emojis)
+(require 'init-font)
 
 (provide 'init)
 ;;; init.el ends here

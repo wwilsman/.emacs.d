@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)
+(require 'quelpa-use-package)
 
 ;; dark mode!
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
@@ -48,6 +49,20 @@
 (use-package rainbow-delimiters
   :diminish rainbow-delimiters-mode
   :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package nano
+  :no-require t
+  :ensure nil ; quelpa will take care of this
+  :quelpa (nano :fetcher github :repo "rougier/nano-emacs"))
+
+(require 'nano-faces)
+(require 'nano-theme)
+
+(setq nano-font-family-monospaced "Operator Mono Lig"
+      nano-font-size 13)
+(setq-default line-spacing 2)
+(nano-faces)
+(nano-theme)
 
 (provide 'init-theme)
 ;;; init-theme.el ends here

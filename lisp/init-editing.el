@@ -184,5 +184,30 @@
   :quelpa (expand-region :fetcher github :repo "magnars/expand-region.el")
   :bind (("C-=" . er/expand-region)))
 
+;; manipulate numbers
+(defun ww/increment-number-at-point (&optional arg)
+  "Increment the number at point by ARG."
+  (interactive "p*")
+  (save-excursion
+    (save-match-data
+      (let (inc-by field-width answer)
+        (setq inc-by (if arg arg 1))
+        (skip-chars-backward "0123456789")
+        (when (re-search-forward "[0-9]+" nil t)
+          (setq field-width (- (match-end 0) (match-beginning 0)))
+          (setq answer (+ (string-to-number (match-string 0) 10) inc-by))
+          (when (< answer 0)
+            (setq answer (+ (expt 10 field-width) answer)))
+          (replace-match (format (concat "%0" (int-to-string field-width) "d")
+                                 answer)))))))
+
+(defun ww/decrement-number-at-point (&optional arg)
+  "Decrement the number at point by ARG."
+  (interactive "p*")
+  (ww/increment-number-at-point (if arg (- arg) -1)))
+
+(bind-key "C-c C-p" `ww/increment-number-at-point)
+(bind-key "C-c C-n" `ww/decrement-number-at-point)
+
 (provide 'init-editing)
 ;;; init-editing.el ends here

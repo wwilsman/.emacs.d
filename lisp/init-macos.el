@@ -13,6 +13,10 @@
                   (lambda () (interactive) (delete-window)))
   (global-set-key [(super z)] 'undo)
 
+  ;; fix bug with MacOS term mode
+  (add-hook 'term-mode-hook
+    (lambda () (setq buffer-display-table (make-display-table))))
+
   ;; fix artist mode right click
   (eval-after-load 'artist'
   '(define-key

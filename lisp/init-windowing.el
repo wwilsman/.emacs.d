@@ -1,6 +1,7 @@
 ;;; init-windowing.el --- Windowing settings
 ;;; Commentary:
 ;;; Code:
+(require 'use-package)
 
 ;; shortcuts to maximize the screen
 (global-set-key (kbd "<s-return>") 'toggle-frame-maximized)
@@ -10,9 +11,6 @@
 (windmove-default-keybindings 'super)
 
 ;; better sensible window splitting
-(setq split-height-threshold 120
-      split-width-threshold 160)
-
 (defun ww/split-window-sensibly (&optional window)
   "Replacement `split-window-sensibly' function which prefers vertical splits for WINDOW."
   (interactive)
@@ -22,7 +20,9 @@
         (and (window-splittable-p window)
              (with-selected-window window (split-window-below))))))
 
-(setq split-window-preferred-function #'ww/split-window-sensibly)
+(setq split-window-preferred-function #'ww/split-window-sensibly
+      split-height-threshold 100
+      split-width-threshold 180)
 
 ;; use custom vertical split function
 (defun ww/v-split-last-buffer ()
@@ -74,6 +74,9 @@
 (define-prefix-command 'window-swap-map)
 (global-set-key (kbd "C-c s") 'window-swap-map)
 (define-key 'window-swap-map "o" 'ww/swap-split-window-orientation)
+
+(use-package ace-window
+  :bind ("M-o" . ace-window))
 
 (provide 'init-windowing)
 ;;; init-windowing.el ends here
