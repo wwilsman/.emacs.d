@@ -41,16 +41,10 @@
 (delete-selection-mode t)
 
 ;; show matching parens
-(show-paren-mode 1)
+(show-paren-mode t)
 
-;; scroll one line at a time
-(setq scroll-margin 0
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 1
-      mouse-wheel-scroll-amount '(1 ((shift) . 1))
-      mouse-wheel-progressive-speed nil
-      mouse-wheel-follow-mouse 't
-      scroll-step 1)
+;; pixel precision scrolling
+(pixel-scroll-precision-mode t)
 
 ;; autosave buffers with names
 (defadvice switch-to-buffer (before save-buffer-now activate)
