@@ -1,4 +1,4 @@
-;;; init-minibuffer.el --- Completion packages
+;;; init-minibuffer.el --- Initialize minibuffer
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)
@@ -12,12 +12,6 @@
   :custom
   (ivy-use-virtual-buffers t)
   :config
-  (setcdr (assoc t ivy-format-functions-alist) #'ivy-format-function-line)
-  (set-face 'ivy-current-match 'nano-face-strong)
-  (set-face-attribute 'ivy-current-match nil
-                      :extend t
-                      :foreground nano-color-background
-                      :background nano-color-salient)
   (ivy-mode t))
 
 ;; ivy-enhanced commands
@@ -45,31 +39,30 @@
   (company-tooltip-flip-when-above t)
   :hook (after-init . global-company-mode))
 
+;; floating minibuffer
 (use-package mini-frame
   :defer nil
   :custom
-  (mini-frame-show-parameters `((left . 0.5)
-                                (top . 1.0)
-                                (width . 1.0)
-                                (height . 13)
-                                (left-fringe . 16)
-                                (right-fringe . 16)
-                                (child-frame-border-width . 0)
-                                (internal-border-width . 0)
-                                (foreground-color . ,nano-color-foreground)
-                                (background-color . ,nano-color-subtle)))
-  (mini-frame-internal-border-color nano-color-faded)
+  (mini-frame-show-parameters `(
+    (top . 100)
+    (left . 0.5)
+    (width . 0.5)
+    (alpha . 0.9)
+    (left-fringe . 13)
+    (right-fringe . 13)
+    (internal-border-width . 0)
+    (child-frame-border-width . 1)))
   (mini-frame-ignore-commands '("edebug-eval-expression" debugger-eval-expression))
-  (mini-frame-resize 'not-set)
   :init
-  (defun ww/minibuffer-spacing ()
-    (setq line-spacing 2)
-    (overlay-put (make-overlay (point-min) (+ (point-min) 1))
-                  'before-string
-                  (propertize "\n" 'face `(:extend t :height 0.7))))
-  (with-current-buffer (get-buffer " *Echo Area 0*") (ww/minibuffer-spacing))
+  (defun ww/minibuffer-setup ()
+    (setq line-spacing 0.4)
+    (face-remap-add-relative 'default 'highlight)
+    (face-remap-add-relative 'fringe 'default)
+    (let ((overlay (make-overlay (point-min) (+ (point-min) 1)))
+          (space (propertize "\n" 'face '(:height 0.5))))
+      (overlay-put overlay 'before-string space)))
   :hook
-  (minibuffer-setup . ww/minibuffer-spacing)
+  (minibuffer-setup . ww/minibuffer-setup)
   :config
   (mini-frame-mode 1))
 
