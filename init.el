@@ -24,11 +24,12 @@
 ;; feature configs
 (require 'init-path)
 (require 'init-macos)
-(require 'init-theme)
 (require 'init-linum)
 (require 'init-windowing)
 (require 'init-editing)
 (require 'init-session)
+(require 'init-theme)
+(require 'init-emojis)
 (require 'init-minibuffer)
 (require 'init-projectile)
 (require 'nano-modeline)
@@ -44,10 +45,6 @@
 (require 'init-markdown)
 (require 'init-yaml)
 (require 'init-c)
-
-;; font config changes font-faces so it is loaded after languages
-(require 'init-emojis)
-(require 'init-font)
 
 (provide 'init)
 ;;; init.el ends here
