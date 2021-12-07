@@ -5,6 +5,9 @@
 
 (use-package markdown-mode
   :mode ("\\.md\\'" . gfm-mode)
+  :custom
+  (markdown-header-scaling t)
+  (markdown-fontify-code-blocks-natively t)
   :hook (markdown-mode . auto-fill-mode))
 
 (use-package grip-mode
