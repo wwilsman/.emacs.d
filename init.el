@@ -32,7 +32,7 @@
 (require 'init-emojis)
 (require 'init-minibuffer)
 (require 'init-projectile)
-(require 'nano-modeline)
+(require 'init-modeline)
 (require 'init-flycheck)
 (require 'init-term)
 (require 'init-dired)
