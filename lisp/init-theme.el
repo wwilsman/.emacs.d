@@ -84,7 +84,7 @@
 (setq-default line-spacing 0.4)
 (when (find-font (font-spec :name "Operator Mono Lig"))
   (add-to-list 'default-frame-alist '(font . "Operator Mono Lig"))
-  (set-face-attribute 'default nil :font "Operator Mono Lig" :height 130)
+  (set-face-attribute 'default nil :font "Operator Mono Lig" :height 120)
 
   ;; ligatures
   (dolist (char-regexp '(
