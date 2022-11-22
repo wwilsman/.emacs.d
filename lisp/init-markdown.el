@@ -8,13 +8,18 @@
   :custom
   (markdown-header-scaling t)
   (markdown-fontify-code-blocks-natively t)
+  (markdown-command "cmark-gfm")
   :hook (markdown-mode . auto-fill-mode))
+
+(use-package markdown-preview-mode
+  :after (markdown-mode))
 
 (use-package grip-mode
   :demand t
   :after (markdown-mode)
   :custom
   (grip-preview-use-webkit (featurep 'xwidget-internal))
+  (grip-update-after-change nil)
   :bind (:map markdown-mode-command-map
          ("g" . grip-mode)))
 
