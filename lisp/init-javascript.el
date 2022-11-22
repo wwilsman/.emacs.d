@@ -37,7 +37,7 @@
 
 (use-package rjsx-mode
   :pin melpa
-  :mode "\\.jsx?\\'")
+  :mode "\\.[mc]?jsx?\\'")
 
 (use-package typescript-mode
   :mode "\\.tsx?\\'"
