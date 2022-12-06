@@ -120,12 +120,6 @@ below or a buffer local variable 'no-mode-line'."
 
 ;; hide the real modeline
 (setq-default mode-line-format "")
-(set-face-attribute 'mode-line nil
- :foreground (face-foreground 'default)
- :background (face-background 'default))
-(set-face-attribute 'mode-line-inactive nil
- :foreground (face-foreground 'default)
- :background (face-background 'default))
 
 ;; create a header modeline based on the current mode
 (setq-default header-line-format '((:eval (cond

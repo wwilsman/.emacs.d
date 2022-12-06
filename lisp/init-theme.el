@@ -9,6 +9,60 @@
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (add-to-list 'default-frame-alist '(border-width . 1))
 
+;; font setup
+(setq-default line-spacing 0.6)
+
+(defun ww/activate-operator-mono ()
+  "Activate the Operator Mono font if available."
+  (when (find-font (font-spec :name "Operator Mono Lig"))
+    (add-to-list 'default-frame-alist '(font . "Operator Mono Lig"))
+    (set-face-attribute 'default nil :font "Operator Mono Lig" :height 130)
+
+    ;; ligatures
+    (dolist (char-regexp '(
+        (33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+        (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+        (36 . ".\\(?:>\\)")
+        (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+        (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+        (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+        (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+        (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+        (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+        (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+        (48 . ".\\(?:x[a-zA-Z]\\)")
+        (58 . ".\\(?:::\\|[:=]\\)")
+        (59 . ".\\(?:;;\\|;\\)")
+        (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+        (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+        (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+        (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+        (91 . ".\\(?:]\\)")
+        (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+        (94 . ".\\(?:=\\)")
+        (119 . ".\\(?:ww\\)")
+        (123 . ".\\(?:-\\)")
+        (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+        (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")))
+      (set-char-table-range composition-function-table
+        (car char-regexp) `([,(cdr char-regexp) 0 font-shape-gstring])))
+
+    ;; italic faces
+    (set-face-italic 'font-lock-builtin-face t)
+    (set-face-italic 'font-lock-comment-face t)
+    (set-face-italic 'font-lock-constant-face t)
+    (set-face-italic 'font-lock-doc-face t)
+    (set-face-italic 'font-lock-function-name-face t)
+    (set-face-italic 'font-lock-keyword-face t)
+
+    (with-eval-after-load 'web-mode
+      (set-face-italic 'web-mode-html-attr-name-face t)
+      (set-face-italic 'web-mode-css-property-name-face t)
+      (set-face-italic 'web-mode-css-pseudo-class-face t))
+
+    (with-eval-after-load 'rjsx-mode
+      (set-face-italic 'rjsx-attr t))))
+
 ;; rainbow mode for colors
 (use-package rainbow-mode
   :diminish rainbow-mode
@@ -41,7 +95,7 @@
       :base0E "#c792ea"
       :base0F "#ff5370")
     "Custom base16 theme colors based on material palenight")
-  (base16-set-faces 'ww/base16-theme ww/base16-theme-colors '(
+  (base16-theme-set-faces 'ww/base16-theme ww/base16-theme-colors '(
    (fringe :background base00)
 
    (linum :foreground base03 :background base00)
@@ -57,6 +111,8 @@
 
    (ivy-current-match :foreground base09)
 
+   (mode-line :foreground base00 :background base00)
+   (mode-line-inactive :foreground base00 :background base00)
    (ww/modeline-default-face :foreground base05 :background base02 :box (:color base01))
    (ww/modeline-popout-face :foreground base00 :background base0D :box (:color base01))
    (ww/modeline-critical-face :foreground base00 :background base08 :box (:color base01))
@@ -78,58 +134,16 @@
 
   (setq underline-minimum-offset 5)
   (setq base16-theme-256-color-source 'colors)
-  (enable-theme 'ww/base16-theme))
 
-;; font setup
-(setq-default line-spacing 0.4)
-(when (find-font (font-spec :name "Operator Mono Lig"))
-  (add-to-list 'default-frame-alist '(font . "Operator Mono Lig"))
-  (set-face-attribute 'default nil :font "Operator Mono Lig" :height 120)
-
-  ;; ligatures
-  (dolist (char-regexp '(
-      (33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-      (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-      (36 . ".\\(?:>\\)")
-      (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-      (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-      (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-      (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-      (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-      (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-      (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-      (48 . ".\\(?:x[a-zA-Z]\\)")
-      (58 . ".\\(?:::\\|[:=]\\)")
-      (59 . ".\\(?:;;\\|;\\)")
-      (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-      (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-      (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-      (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-      (91 . ".\\(?:]\\)")
-      (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-      (94 . ".\\(?:=\\)")
-      (119 . ".\\(?:ww\\)")
-      (123 . ".\\(?:-\\)")
-      (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-      (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")))
-    (set-char-table-range composition-function-table
-      (car char-regexp) `([,(cdr char-regexp) 0 font-shape-gstring])))
-
-  ;; italic faces
-  (set-face-italic 'font-lock-builtin-face t)
-  (set-face-italic 'font-lock-comment-face t)
-  (set-face-italic 'font-lock-constant-face t)
-  (set-face-italic 'font-lock-doc-face t)
-  (set-face-italic 'font-lock-function-name-face t)
-  (set-face-italic 'font-lock-keyword-face t)
-
-  (with-eval-after-load 'web-mode
-    (set-face-italic 'web-mode-html-attr-name-face t)
-    (set-face-italic 'web-mode-css-property-name-face t)
-    (set-face-italic 'web-mode-css-pseudo-class-face t))
-
-  (with-eval-after-load 'rjsx-mode
-    (set-face-italic 'rjsx-attr t)))
+  (if (daemonp)
+    (add-hook 'after-make-frame-functions (lambda (frame)
+      (with-selected-frame frame
+        (if (window-system frame) (progn
+          (enable-theme 'ww/base16-theme)
+          (ww/activate-operator-mono))))))
+    (progn
+      (enable-theme 'ww/base16-theme)
+      (ww/activate-operator-mono))))
 
 (provide 'init-theme)
 ;;; init-theme.el ends here

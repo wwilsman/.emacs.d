@@ -6,11 +6,7 @@
 ;; magit
 (use-package magit
   :bind (("C-x g" . magit-status)
-         ("C-x M-g" . magit-dispatch))
-  :config
-  (unless (display-graphic-p)
-    (setq magit-display-buffer-function
-          #'magit-display-buffer-fullframe-status-v1)))
+         ("C-x M-g" . magit-dispatch)))
 
 ;; highlight diff in fringe
 (use-package diff-hl
