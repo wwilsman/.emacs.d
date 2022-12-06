@@ -44,6 +44,7 @@
 (require 'init-javascript)
 (require 'init-markdown)
 (require 'init-yaml)
+(require 'init-lua)
 (require 'init-c)
 
 (provide 'init)
