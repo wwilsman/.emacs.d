@@ -58,10 +58,7 @@
     (with-eval-after-load 'web-mode
       (set-face-italic 'web-mode-html-attr-name-face t)
       (set-face-italic 'web-mode-css-property-name-face t)
-      (set-face-italic 'web-mode-css-pseudo-class-face t))
-
-    (with-eval-after-load 'rjsx-mode
-      (set-face-italic 'rjsx-attr t))))
+      (set-face-italic 'web-mode-css-pseudo-class-face t))))
 
 ;; rainbow mode for colors
 (use-package rainbow-mode
@@ -126,10 +123,7 @@
 
    (web-mode-html-tag-face :inherit font-lock-constant-face)
    (web-mode-html-attr-name-face :inherit font-lock-variable-name-face)
-   (web-mode-html-attr-value-face :inherit font-lock-preprocessor-face)
-
-   (rjsx-tag :inherit font-lock-constant-face)
-   (rjsx-attr :inherit font-lock-variable-name-face)))
+   (web-mode-html-attr-value-face :inherit font-lock-preprocessor-face)))
   (base16-theme-define 'ww/base16-theme ww/base16-theme-colors)
 
   (setq underline-minimum-offset 5)
