@@ -47,5 +47,8 @@
 (require 'init-lua)
 (require 'init-c)
 
+;; language server
+(require 'init-lsp)
+
 (provide 'init)
 ;;; init.el ends here
