@@ -12,11 +12,7 @@ things to get the config to work properly, please create an issue so I can add
 it to the list.
 
 - An Emacs server is auto-started when one is not already running, update your
-  `$EDITOR` environment variable to `emacsclient -c` (This also applies to
-  `$REACT_EDITOR` as well).
-
-- To enable all-the-icons in the modeline, install them through emacs with `M-x
-  all-the-icons-install-fonts`.
+  `$EDITOR` environment variable to `emacsclient` (optionally with `-c`).
 
 - I use [Fira Code](https://github.com/tonsky/FiraCode) with ligatures and
   Operator Mono for cursive keywords. The config for these is only initialized
@@ -37,37 +33,6 @@ it to the list.
 
 - To see flycheck errors in JS, install `eslint`: `npm install -g eslint`
 
-- To utilize [Git time metric](https://github.com/git-time-metric/gtm), install
-  `gtm`: `brew tap git-time-metric/gtm && brew install gtm`
-
-  You might also want the [terminal
-  plugin](https://github.com/git-time-metric/gtm-terminal-plugin) to track time
-  spent in the terminal.
-
 - For GPG signing, pinentry is installed and automatically started. You'll have
   to add `allow-emacs-pinentry` and `allow-loopback-pinentry` to `.gnupg/gpg-agent.conf`
   then reload gpg-agent with `gpgconf --reload gpg-agent`.
-
-### Running from a TTY
-
-- To get theme colors to display correctly, [a custom display
-  definition](https://www.gnu.org/software/emacs/manual/html_mono/efaq.html#Colors-on-a-TTY)
-  must be provided (`terminfo-24bit.src`).
-
-  Compile it and use the `TERM` environment variable:
-
-  ```ssh-session
-  $ tic -x -o ~/.terminfo terminfo-24bit.src
-  $ TERM=xterm-24bits emacs -nw
-  ```
-
-### Starting a daemon on login for MacOS
-
-If emacs isn't left open in the background on your machine, the emacs server
-will shutdown when the last instance of emacs is shutdown. To start this server
-on login so emacs is always loaded and ready to go, run the following commands:
-
-``` ssh-session
-$ cp ~/.emacs.d/gnu.emacs.daemon.plist ~/Library/LaunchAgents/gnu.emacs.daemon.plist
-$ launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
-```
