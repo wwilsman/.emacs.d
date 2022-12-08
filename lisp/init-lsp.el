@@ -9,7 +9,6 @@
          (lsp-mode . lsp-enable-which-key-integration))
   :custom
   (lsp-keymap-prefix "C-c l")
-  (lsp-ui-doc-enable nil)
   (lsp-eldoc-enable-hover nil)
   (lsp-signature-auto-activate nil)
   (lsp-headerline-breadcrumb-enable nil)
@@ -20,9 +19,10 @@
 (use-package lsp-ui
   :commands lsp-ui-mode
   :custom
-  (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-code-actions t)
-  (lsp-ui-sideline-show-hover nil))
+  (lsp-ui-sideline-show-diagnostics t)
+  (lsp-ui-sideline-show-hover nil)
+  (lsp-ui-doc-enable nil))
 
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
