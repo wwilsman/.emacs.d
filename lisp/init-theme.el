@@ -139,5 +139,10 @@
       (enable-theme 'ww/base16-theme)
       (ww/activate-operator-mono))))
 
+(use-package all-the-icons
+  :config
+  (if (and (window-system) (not (find-font (font-spec :name "Operator Mono Lig"))))
+    (all-the-icons-install-fonts t)))
+
 (provide 'init-theme)
 ;;; init-theme.el ends here
