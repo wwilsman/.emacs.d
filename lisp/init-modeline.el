@@ -119,7 +119,7 @@ below or a buffer local variable 'no-mode-line'."
 (add-hook 'window-configuration-change-hook 'ww/modeline-update-windows)
 
 ;; hide the real modeline
-(setq-default mode-line-format "")
+(setq-default mode-line-format (list ""))
 
 ;; create a header modeline based on the current mode
 (setq-default header-line-format '((:eval (cond
