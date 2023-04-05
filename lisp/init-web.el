@@ -17,7 +17,7 @@
          ("\\.[tj]sx?\\'" . web-mode)
          ("\\.css?\\'" . web-mode))
   :custom
-  (web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+  (web-mode-content-types-alist '(("jsx" . "\\.[mc]?js[x]?\\'")))
   (web-mode-markup-indent-offset 2)
   (web-mode-css-indent-offset 2)
   (web-mode-code-indent-offset 2)
@@ -53,7 +53,7 @@
 ;; emmet
 (use-package emmet-mode
   :hook (sgml-mode web-mode)
-  :custom emmet-indentation 2)
+  :custom (emmet-indentation 2))
 
 (provide 'init-web)
 ;;; init-web.el ends here
