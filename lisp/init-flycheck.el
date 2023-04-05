@@ -8,7 +8,7 @@
   :custom
   (flycheck-indication-mode 'right-fringe)
   :config
-  ;; make the flycheck arror look like an exclamation point
+  ;; make the flycheck error look like an exclamation point
   (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
     [0 24 24 24 24 24 24 0 0 24 24 0 0 0 0 0 0])
   (global-flycheck-mode))
