@@ -20,6 +20,17 @@
 (require 'init-ui)
 (require 'init-elpa)
 
+;; language specific configs
+(require 'init-web)
+(require 'init-javascript)
+(require 'init-markdown)
+(require 'init-yaml)
+(require 'init-lua)
+(require 'init-c)
+
+;; language server
+(require 'init-lsp)
+
 ;; feature configs
 (require 'init-path)
 (require 'init-macos)
@@ -37,17 +48,6 @@
 (require 'init-dired)
 (require 'init-vcs)
 ;(require 'init-tracking)
-
-;; language specific configs
-(require 'init-web)
-(require 'init-javascript)
-(require 'init-markdown)
-(require 'init-yaml)
-(require 'init-lua)
-(require 'init-c)
-
-;; language server
-(require 'init-lsp)
 
 (provide 'init)
 ;;; init.el ends here
