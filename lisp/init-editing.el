@@ -203,5 +203,15 @@
 (bind-key "C-c C-p" `ww/increment-number-at-point)
 (bind-key "C-c C-n" `ww/decrement-number-at-point)
 
+(put 'kill-ring-save 'interactive-form '(interactive
+  (if (use-region-p)
+      (list (region-beginning) (region-end))
+    (list (line-beginning-position) (line-beginning-position 2)))))
+
+(put 'kill-region 'interactive-form '(interactive
+  (if (use-region-p)
+      (list (region-beginning) (region-end))
+    (list (line-beginning-position) (line-beginning-position 2)))))
+
 (provide 'init-editing)
 ;;; init-editing.el ends here
