@@ -167,6 +167,11 @@
   :bind (("M-p" . move-text-up)
          ("M-n" . move-text-down)))
 
+;; kill the current line or region
+(use-package whole-line-or-region
+  :config
+  (whole-line-or-region-global-mode))
+
 ;; smart trim whitespace
 (use-package whitespace-cleanup-mode
   :diminish whitespace-cleanup-mode
@@ -202,16 +207,6 @@
 
 (bind-key "C-c C-p" `ww/increment-number-at-point)
 (bind-key "C-c C-n" `ww/decrement-number-at-point)
-
-(put 'kill-ring-save 'interactive-form '(interactive
-  (if (use-region-p)
-      (list (region-beginning) (region-end))
-    (list (line-beginning-position) (line-beginning-position 2)))))
-
-(put 'kill-region 'interactive-form '(interactive
-  (if (use-region-p)
-      (list (region-beginning) (region-end))
-    (list (line-beginning-position) (line-beginning-position 2)))))
 
 (provide 'init-editing)
 ;;; init-editing.el ends here
