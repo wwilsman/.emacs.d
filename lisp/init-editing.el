@@ -11,6 +11,9 @@
 ;; default fill-column
 (setq-default fill-column 100)
 
+;; truncate lines by default
+(setq-default truncate-lines t)
+
 ;; show trailing whitespace in prog-mode
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
