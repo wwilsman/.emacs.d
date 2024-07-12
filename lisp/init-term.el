@@ -12,7 +12,7 @@
   :custom
   (multi-term-program "/bin/zsh")
   (term-suppress-hard-newline t)
-  :config
+  :init
   (defun projectile-run-term ()
     "Get dedicated multi-term in project root"
     (interactive)
