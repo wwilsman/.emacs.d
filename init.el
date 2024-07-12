@@ -23,6 +23,7 @@
 ;; language specific configs
 (require 'init-web)
 (require 'init-javascript)
+(require 'init-graphql)
 (require 'init-markdown)
 (require 'init-yaml)
 (require 'init-lua)
