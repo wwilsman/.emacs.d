@@ -24,6 +24,7 @@
   (web-mode-code-indent-offset 2)
   (web-mode-enable-auto-quoting nil)
   (web-mode-enable-auto-indentation nil)
+  (web-mode-comment-formats '(("javascript" . "//")))
   (css-indent-offset 2)
   :init
   (defun ww/web-mode-insert-space (arg)
