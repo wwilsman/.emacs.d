@@ -23,6 +23,7 @@
   (web-mode-css-indent-offset 2)
   (web-mode-code-indent-offset 2)
   (web-mode-enable-auto-quoting nil)
+  (web-mode-enable-auto-indentation nil)
   (css-indent-offset 2)
   :init
   (defun ww/web-mode-insert-space (arg)
