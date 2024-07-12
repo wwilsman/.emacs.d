@@ -12,6 +12,7 @@
   :config
   (setf (alist-get 'web-mode lsp--formatting-indent-alist) 'web-mode-code-indent-offset)
   (add-to-list 'lsp-language-id-configuration '("\\.hbs?\\'" . "html"))
+  (add-to-list 'lsp-language-id-configuration '("\\.[mc]?[tj]?sx?\\'" . "javascript"))
   (setq lsp-keymap-prefix "C-c l"
         lsp-eldoc-enable-hover nil
         lsp-signature-auto-activate nil
