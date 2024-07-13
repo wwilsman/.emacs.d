@@ -17,6 +17,9 @@
 ;; show trailing whitespace in prog-mode
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
+;; use hide-show minor mode in prog-mode
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+
 ;; missing newlines can mess up diffs
 (setq require-final-newline t)
 
