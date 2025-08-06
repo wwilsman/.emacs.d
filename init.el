@@ -51,5 +51,8 @@
 (require 'init-vcs)
 ;(require 'init-tracking)
 
+;; copilot
+(require 'init-copilot)
+
 (provide 'init)
 ;;; init.el ends here
