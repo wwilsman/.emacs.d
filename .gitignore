@@ -7,6 +7,7 @@ smex-items
 projectile-bookmarks.eld
 projectile.cache
 recentf
+recentf.eld
 .lsp-session-v1
 .mc-lists.el
 .cache
@@ -19,5 +20,7 @@ lock
 *~
 transient
 projects
+projects.eld
 tramp
 url
+eln-cache
