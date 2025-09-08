@@ -12,11 +12,11 @@
 ;; font setup
 (setq-default line-spacing 0.6)
 
-(defun ww/activate-operator-mono ()
+(defun ww/activate-victor-mono ()
   "Activate the Operator Mono font if available."
-  (when (find-font (font-spec :name "Operator Mono Lig"))
-    (add-to-list 'default-frame-alist '(font . "Operator Mono Lig"))
-    (set-face-attribute 'default nil :font "Operator Mono Lig" :height 130)
+  (when (find-font (font-spec :name "Victor Mono"))
+    (add-to-list 'default-frame-alist '(font . "Victor Mono"))
+    (set-face-attribute 'default nil :font "Victor Mono" :height 130)
 
     ;; ligatures
     (dolist (char-regexp '(
@@ -134,14 +134,14 @@
       (with-selected-frame frame
         (if (window-system frame) (progn
           (enable-theme 'ww/base16-theme)
-          (ww/activate-operator-mono))))))
+          (ww/activate-victor-mono))))))
     (progn
       (enable-theme 'ww/base16-theme)
-      (ww/activate-operator-mono))))
+      (ww/activate-victor-mono))))
 
 (use-package all-the-icons
   :config
-  (if (and (window-system) (not (find-font (font-spec :name "Operator Mono Lig"))))
+  (if (and (window-system) (not (find-font (font-spec :name "all-the-icons"))))
     (all-the-icons-install-fonts t)))
 
 (provide 'init-theme)

@@ -14,9 +14,8 @@ it to the list.
 - An Emacs server is auto-started when one is not already running, update your
   `$EDITOR` environment variable to `emacsclient` (optionally with `-c`).
 
-- I use [Fira Code](https://github.com/tonsky/FiraCode) with ligatures and
-  Operator Mono for cursive keywords. The config for these is only initialized
-  when the fonts exist.
+- I use [Victor Mono](https://rubjo.github.io/victor-mono/) for mono scripts and
+  ligatures. The config for these is only initialized when the font exists.
 
 - [Select GitHub-style emojis](https://gitmoji.carloscuesta.me/) are transformed
   into real unicode emojis. If using official Emacs (without multi-color font
