@@ -1,4 +1,4 @@
-;;; init-emojis.el --- Enable emojis
+;;; init-emojis.el --- Enable emojis -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

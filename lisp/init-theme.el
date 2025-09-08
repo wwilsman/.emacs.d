@@ -1,4 +1,4 @@
-;;; init-theme.el --- Theme settings
+;;; init-theme.el --- Theme settings -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

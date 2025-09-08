@@ -1,4 +1,4 @@
-;;; init-web.el --- Web mode
+;;; init-web.el --- Web mode -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

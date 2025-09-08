@@ -1,4 +1,4 @@
-;;; init-elpa.el --- Initialize packages
+;;; init-elpa.el --- Initialize packages  -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'package)

@@ -1,4 +1,4 @@
-;;; init-projectile.el --- Projectile
+;;; init-projectile.el --- Projectile -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

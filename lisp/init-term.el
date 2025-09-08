@@ -1,4 +1,4 @@
-;;; init-term.el --- Terminal settings and modes
+;;; init-term.el --- Terminal settings and modes -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

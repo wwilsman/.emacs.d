@@ -1,4 +1,4 @@
-;;; init-ui.el --- UI settings
+;;; init-ui.el --- UI settings -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (setq-default tab-width 2)

@@ -1,4 +1,4 @@
-;;; init-linum.el --- Line numbering
+;;; init-linum.el --- Line numbering -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

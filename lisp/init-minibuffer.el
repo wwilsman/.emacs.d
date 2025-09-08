@@ -1,4 +1,4 @@
-;;; init-minibuffer.el --- Initialize minibuffer
+;;; init-minibuffer.el --- Initialize minibuffer -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

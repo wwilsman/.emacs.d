@@ -1,4 +1,4 @@
-;;; mc-modal-mode.el --- Multiple cursors modal mode.
+;;; mc-modal-mode.el --- Multiple cursors modal mode. -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

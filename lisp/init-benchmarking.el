@@ -1,4 +1,4 @@
-;;; init-benchmarking.el --- Benchmarking emacs startup
+;;; init-benchmarking.el --- Benchmarking emacs startup  -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

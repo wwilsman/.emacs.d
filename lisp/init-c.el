@@ -1,4 +1,4 @@
-;;; init-c.el --- C, C#, C++ modes
+;;; init-c.el --- C, C#, C++ modes -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

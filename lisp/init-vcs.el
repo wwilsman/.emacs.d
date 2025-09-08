@@ -1,4 +1,4 @@
-;;; init-vcs.el --- Version control settings
+;;; init-vcs.el --- Version control settings -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

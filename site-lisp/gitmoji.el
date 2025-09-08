@@ -1,4 +1,4 @@
-;;; gitmoji.el --- Gitmoji selector.
+;;; gitmoji.el --- Gitmoji selector. -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

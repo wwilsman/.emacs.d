@@ -1,4 +1,4 @@
-;;; init-spelling.el --- Spell check settings
+;;; init-spelling.el --- Spell check settings -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

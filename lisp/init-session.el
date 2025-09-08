@@ -1,4 +1,4 @@
-;;; init-session.el --- Sessions in emacs
+;;; init-session.el --- Sessions in emacs -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'desktop)

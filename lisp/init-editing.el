@@ -1,4 +1,4 @@
-;;; init-editing.el --- Editing utils
+;;; init-editing.el --- Editing utils -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'quelpa-use-package)

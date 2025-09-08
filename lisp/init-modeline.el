@@ -1,4 +1,4 @@
-;;; init-modeline.el --- Completion packages
+;;; init-modeline.el --- Completion packages -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

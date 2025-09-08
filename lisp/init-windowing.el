@@ -1,4 +1,4 @@
-;;; init-windowing.el --- Windowing settings
+;;; init-windowing.el --- Windowing settings -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

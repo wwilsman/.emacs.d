@@ -1,4 +1,4 @@
-;;; init-graphql.el --- GraphQL modes
+;;; init-graphql.el --- GraphQL modes -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

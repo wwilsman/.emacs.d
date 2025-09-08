@@ -1,4 +1,4 @@
-;;; init-path.el --- Initialize $PATH
+;;; init-path.el --- Initialize $PATH -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

@@ -1,4 +1,4 @@
-;;; init-tracking.el --- Tracking stats
+;;; init-tracking.el --- Tracking stats -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

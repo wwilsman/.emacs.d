@@ -1,4 +1,4 @@
-;;; init-dired.el --- Dired settings
+;;; init-dired.el --- Dired settings  -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'quelpa-use-package)

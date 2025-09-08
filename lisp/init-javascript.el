@@ -1,4 +1,4 @@
-;;; init-javascript.el --- JS modes
+;;; init-javascript.el --- JS modes -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

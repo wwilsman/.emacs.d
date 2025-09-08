@@ -1,4 +1,4 @@
-;;; init-lsp.el --- Language server mode
+;;; init-lsp.el --- Language server mode -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'use-package)

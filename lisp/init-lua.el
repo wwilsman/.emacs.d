@@ -1,4 +1,4 @@
-;;; init-lua.el --- Lua mode
+;;; init-lua.el --- Lua mode -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
