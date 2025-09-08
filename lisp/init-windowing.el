@@ -12,7 +12,7 @@
 
 ;; better sensible window splitting
 (defun ww/split-window-sensibly (&optional window)
-  "Replacement `split-window-sensibly' function which prefers vertical splits for WINDOW."
+  "Replacement `split-window-sensibly' which prefers vertical splits for WINDOW."
   (interactive)
   (let ((window (or window (selected-window))))
     (or (and (window-splittable-p window t)
