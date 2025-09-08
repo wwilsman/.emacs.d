@@ -29,7 +29,8 @@
 (defun ww/modeline-compose (status name primary secondary)
   "Compose a modeline string consisting of STATUS, NAME, PRIMARY, and SECONDARY."
   (let* ((char-width (window-font-width nil 'header-line))
-         (window (get-buffer-window (current-buffer)))         (space-up +0.3)
+         (window (get-buffer-window (current-buffer)))
+         (space-up +0.3)
          (space-down -0.4)
          (prefix (propertize (concat " " status " ") 'face (cond
            ((string= status "**") 'ww/modeline-critical-face)

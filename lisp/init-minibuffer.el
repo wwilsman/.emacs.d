@@ -59,7 +59,7 @@
     (face-remap-add-relative 'default 'highlight)
     (face-remap-add-relative 'fringe 'default)
     (let ((overlay (make-overlay (point-min) (+ (point-min) 1)))
-          (space (propertize "\n" 'face '(:height 0.5))))
+          (space (propertize "\n" 'face '(:height 0.2))))
       (overlay-put overlay 'before-string space)))
   :hook
   (minibuffer-setup . ww/minibuffer-setup)
