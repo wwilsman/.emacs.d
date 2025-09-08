@@ -1,4 +1,4 @@
-;;; init-copilot.el --- GitHub Copilot
+;;; init-ai.el --- AI integrations -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 (require 'quelpa-use-package)
@@ -19,8 +19,21 @@
               ("C-RET" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)
               ("C-<ret>" . 'copilot-accept-completion-by-word))
+  :custom
+  (copilot-indent-offset-warning-disable t)
   :config
   (add-to-list 'copilot-major-mode-alist '("web-mode" . "javascript")))
 
-(provide 'init-copilot)
-;;; init-copilot.el ends here
+(use-package claude-code-ide
+  :quelpa (claude-code-ide :fetcher github
+                           :repo "manzaltu/claude-code-ide.el"
+                           :branch "main"
+                           :files ("*.el"))
+  :bind ("C-c C-'" . claude-code-ide-menu)
+  :custom
+  (claude-code-ide-terminal-backend 'eat)
+  :config
+  (claude-code-ide-emacs-tools-setup))
+
+(provide 'init-ai)
+;;; init-ai.el ends here
