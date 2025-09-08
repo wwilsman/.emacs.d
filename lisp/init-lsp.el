@@ -18,6 +18,7 @@
         lsp-signature-auto-activate nil
         lsp-enable-on-type-formatting nil
         lsp-headerline-breadcrumb-enable nil
+        lsp-apply-edits-after-file-operations nil
         lsp-css-lint-unknown-at-rules "ignore"
         ;lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")
         lsp-eslint-validate '("javascript" "javascriptreact")))
