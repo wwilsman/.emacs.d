@@ -43,7 +43,7 @@
 (require 'init-emojis)
 (require 'init-minibuffer)
 (require 'init-projectile)
-(require 'init-treemacs)
+(require 'init-tree-sitter)
 (require 'init-modeline)
 (require 'init-flycheck)
 (require 'init-term)

@@ -9,10 +9,12 @@
  package-archives
  '(("melpa" . "https://melpa.org/packages/")
    ("melpa-stable" . "https://stable.melpa.org/packages/")
+   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
    ;;("gnu" . "http://elpa.gnu.org/packages/"))
    ("gnu" . "http://mirrors.163.com/elpa/gnu/"))
  package-archive-priorities
  '(("melpa" . 10)
+   ("nongnu" . 8)
    ("melpa-stable" . 5)
    ("gnu" . 0)))
 
