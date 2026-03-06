@@ -3,7 +3,10 @@
 ;;; Code:
 (require 'use-package)
 
-(setq shell-file-name "/opt/homebrew/bin/fish")
+(setq shell-file-name
+      (if (file-exists-p "/opt/homebrew/bin/fish")
+          "/opt/homebrew/bin/fish"
+        "/bin/bash"))
 
 (use-package eat
   :quelpa (eat :fetcher git

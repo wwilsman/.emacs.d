@@ -50,7 +50,8 @@
 (show-paren-mode t)
 
 ;; pixel precision scrolling
-(pixel-scroll-precision-mode t)
+(when (eq system-type 'darwin)
+  (pixel-scroll-precision-mode t))
 
 ;; autosave buffers with names
 (defadvice switch-to-buffer (before save-buffer-now activate)
