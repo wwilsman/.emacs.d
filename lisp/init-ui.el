@@ -18,6 +18,9 @@
 (add-to-list 'default-frame-alist '(internal-border-width . 24))
 (window-divider-mode 1)
 
+(when (and (eq system-type 'gnu/linux) (getenv "WSLENV"))
+  (add-to-list 'default-frame-alist '(undecorated . t)))
+
 (setq widget-image-enable nil
       org-hide-emphasis-markers t)
 
