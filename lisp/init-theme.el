@@ -14,10 +14,9 @@
 (setq-default line-spacing 0.6)
 
 (defun ww/activate-victor-mono ()
-  "Activate the Operator Mono font if available."
+  "Activate the Victor Mono font if available."
   (when (find-font (font-spec :name "Victor Mono"))
-    (add-to-list 'default-frame-alist '(font . "Victor Mono"))
-    (set-face-attribute 'default nil :font "Victor Mono" :height 130)
+    (add-to-list 'default-frame-alist '(font . "Victor Mono-11"))
 
     ;; ligatures
     (dolist (char-regexp '(
