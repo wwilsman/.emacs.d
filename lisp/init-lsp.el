@@ -7,21 +7,23 @@
   :commands (lsp lsp-deferred)
   :hook ((web-mode . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
-  :custom
-  (lsp-eslint-package-manager "yarn")
+  ;:custom
+  ;(lsp-eslint-package-manager "yarn")
   :config
   (setf (alist-get 'web-mode lsp--formatting-indent-alist) 'web-mode-code-indent-offset)
   (add-to-list 'lsp-language-id-configuration '("\\.hbs?\\'" . "html"))
-  (add-to-list 'lsp-language-id-configuration '("\\.[mc]?[tj]?sx?\\'" . "javascript"))
+  (add-to-list 'lsp-language-id-configuration '("\\.[mc]?[j]?sx?\\'" . "javascript"))
+  (add-to-list 'lsp-language-id-configuration '("\\.ts\\'" . "typescript"))
+  (add-to-list 'lsp-language-id-configuration '("\\.tsx\\'" . "typescriptreact"))
   (setq lsp-keymap-prefix "C-c l"
         lsp-eldoc-enable-hover nil
         lsp-signature-auto-activate nil
         lsp-enable-on-type-formatting nil
         lsp-headerline-breadcrumb-enable nil
-        lsp-apply-edits-after-file-operations nil
-        lsp-css-lint-unknown-at-rules "ignore"
+        lsp-apply-edits-after-file-operations nil))
+        ;lsp-css-lint-unknown-at-rules "ignore"
         ;lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")
-        lsp-eslint-validate '("javascript" "javascriptreact")))
+        ;lsp-eslint-validate '("javascript" "javascriptreact")))
 
 (use-package lsp-ui
   :commands lsp-ui-mode
