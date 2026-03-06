@@ -25,16 +25,12 @@
     :config
     (add-to-list 'copilot-major-mode-alist '("web-mode" . "javascript"))))
 
-(use-package claude-code-ide
-  :quelpa (claude-code-ide :fetcher github
-                           :repo "manzaltu/claude-code-ide.el"
-                           :branch "main"
-                           :files ("*.el"))
-  :bind ("C-c C-'" . claude-code-ide-menu)
-  :custom
-  (claude-code-ide-terminal-backend 'eat)
-  :config
-  (claude-code-ide-emacs-tools-setup))
+(use-package claudemacs
+  :quelpa (claudemacs :fetcher github
+                      :repo "cpoile/claudemacs"
+                      :branch "main"
+                      :files ("*.el"))
+  :bind ("C-c C-'" . claudemacs-transient-menu))
 
 (provide 'init-ai)
 ;;; init-ai.el ends here
