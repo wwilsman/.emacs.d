@@ -31,9 +31,29 @@
   ;; Dim the subtree guides so gaps are less noticeable
   (with-eval-after-load 'dirvish-subtree
     (set-face-attribute 'dirvish-subtree-guide nil :foreground "#3a3a4a"))
+  ;; Smart return key: navigate into projects, toggle subtree for directories, open files otherwise
+  (defun ww/dirvish-smart-return ()
+    "Navigate into project directories, toggle subtree for regular directories, open regular files."
+    (interactive)
+    (let ((file (dired-get-filename nil t)))
+      (cond
+       ;; If it's a directory with .git, navigate into it
+       ((and (file-directory-p file)
+             (file-exists-p (expand-file-name ".git" file)))
+        (dired-find-file))
+       ;; If it's a regular directory, toggle subtree
+       ((file-directory-p file)
+        (dirvish-subtree-toggle))
+       ;; Otherwise open the file
+       (t (dired-find-file)))))
+
   ;; Subtree keybindings
   (define-key dirvish-mode-map (kbd "TAB") #'dirvish-subtree-toggle)
   (define-key dirvish-mode-map (kbd "<backtab>") #'dirvish-subtree-remove)
+  (define-key dirvish-mode-map (kbd "RET") #'ww/dirvish-smart-return)
+  (define-key dirvish-mode-map (kbd "<return>") #'ww/dirvish-smart-return)
+  (define-key dirvish-mode-map (kbd "DEL") #'dired-up-directory)
+  (define-key dirvish-mode-map (kbd "<backspace>") #'dired-up-directory)
 
   ;; Fix emoji/ellipsis width calculation in git-msg overlay
   ;;
