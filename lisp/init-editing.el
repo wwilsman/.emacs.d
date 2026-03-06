@@ -183,6 +183,10 @@
   :diminish whitespace-cleanup-mode
   :hook (after-init . global-whitespace-cleanup-mode))
 
+(use-package dtrt-indent
+  :config
+  (dtrt-indent-global-mode))
+
 ;; expand region
 (use-package expand-region
   :ensure nil ; quelpa will take care of this
