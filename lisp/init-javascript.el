@@ -18,6 +18,17 @@
 (use-package json-mode)
 (use-package prettier-js)
 
+(use-package js2-mode
+  :custom
+  (js2-mode-show-parse-errors nil)
+  (js2-mode-show-strict-warnings nil)
+  (js2-highlight-external-variables nil)
+  (js2-include-node-externs t))
+
+(use-package js2-refactor
+  :config
+  (js2r-add-keybindings-with-prefix "C-c C-r"))
+
 ;; parse node stack traces in compilation buffers
 (require 'compile)
 (add-to-list 'compilation-error-regexp-alist 'node)

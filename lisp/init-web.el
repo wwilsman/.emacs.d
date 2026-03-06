@@ -51,7 +51,14 @@
   :hook (web-mode . (lambda ()
                       (local-set-key " " 'ww/web-mode-insert-space)
                       (local-set-key "\177" 'ww/web-mode-delete-space)
-                      (electric-pair-mode t))))
+                      (electric-pair-mode 1)
+
+                      (ignore-errors
+                        (when (and (buffer-file-name)
+                                   (member (file-name-extension (buffer-file-name))
+                                           '("js" "jsx" "tsx")))
+                          (js2-minor-mode 1)
+                          (js2-refactor-mode 1))))))
 
 ;; emmet
 (use-package emmet-mode
