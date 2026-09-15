@@ -10,19 +10,33 @@
 ;; use super for switching between visible windows
 (windmove-default-keybindings 'super)
 
-;; better sensible window splitting
-(defun ww/split-window-sensibly (&optional window)
-  "Replacement `split-window-sensibly' which prefers vertical splits for WINDOW."
-  (interactive)
-  (let ((window (or window (selected-window))))
-    (or (and (window-splittable-p window t)
-             (with-selected-window window (split-window-right)))
-        (and (window-splittable-p window)
-             (with-selected-window window (split-window-below))))))
+(defvar ww/tty-cell-aspect 3.1
+  "Assumed terminal character cell aspect ratio.
+Used to approximate orientation on a TTY.")
 
-(setq split-window-preferred-function #'ww/split-window-sensibly
-      split-height-threshold 100
-      split-width-threshold 180)
+(defun ww/frame-portrait-p ()
+  "Non-nil when the selected frame is taller than it is wide.
+Graphic frames compare pixels; TTY frames approximate via
+`ww/tty-cell-aspect' since `frame-pixel-*' report character cells."
+  (if (display-graphic-p)
+      (> (frame-pixel-height) (frame-pixel-width))
+    (> (* (frame-height) ww/tty-cell-aspect) (frame-width))))
+
+(defun ww/display-buffer-orientation (buffer alist)
+  "Display BUFFER based on the selected frame's orientation.
+Landscape splits right (or reuses a window if several); portrait
+splits below (or replaces the opposite window if several)."
+  (if (> (length (window-list)) 1)
+      (display-buffer-use-some-window
+       buffer (cons '(inhibit-same-window . t) alist))
+    (if (ww/frame-portrait-p)
+        (display-buffer-below-selected buffer alist)
+      (display-buffer-in-direction
+       buffer (cons '(direction . right) alist)))))
+
+(setq display-buffer-base-action '(ww/display-buffer-orientation)
+      split-height-threshold 30
+      split-width-threshold 80)
 
 ;; use custom vertical split function
 (defun ww/v-split-last-buffer ()
