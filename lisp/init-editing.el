@@ -75,6 +75,9 @@
 ;; autosave when focus is lost
 (add-hook 'focus-out-hook (lambda () (when buffer-file-name (save-buffer))))
 
+(unless (display-graphic-p)
+  (define-key key-translation-map (kbd "ESC s") 'event-apply-super-modifier))
+
 ;; xref enter as tab
 (use-package xref
   :bind (:map xref--xref-buffer-mode-map
