@@ -29,6 +29,7 @@
 (require 'init-lua)
 (require 'init-c)
 (require 'init-go)
+(require 'init-org)
 
 ;; language server
 (require 'init-lsp)
