@@ -16,7 +16,7 @@
 (defun ww/activate-victor-mono ()
   "Activate the Victor Mono font if available."
   (when (find-font (font-spec :name "Victor Mono"))
-    (add-to-list 'default-frame-alist '(font . "Victor Mono-11"))
+    (add-to-list 'default-frame-alist '(font . "Victor Mono-10"))
 
     ;; ligatures
     (dolist (char-regexp '(
@@ -70,73 +70,58 @@
   :diminish rainbow-delimiters-mode
   :hook (prog-mode . rainbow-delimiters-mode))
 
-;; custom base-16 theme
-(use-package base16-theme
+;; nord theme
+(use-package nord-theme
+  :init
+  ;; upstream nord-theme.el ships without a `lexical-binding' cookie, which
+  ;; Emacs 30+ warns about. The warning fires from several channels (the
+  ;; implicit `require' below, `load-theme', byte/native compilation); all of
+  ;; them funnel through `display-warning', so drop just this file's cookie
+  ;; warning there and leave every other package's warnings intact.
+  (advice-add 'display-warning :around
+    (lambda (orig type message &rest args)
+      (unless (and (string-match-p "nord-theme" (format "%s" message))
+                   (string-match-p "lexical-binding" (format "%s" message)))
+        (apply orig type message args))))
   :config
-  (deftheme ww/base16-theme)
-  (defvar ww/base16-theme-colors
-    '(:base00 "#292d3e"
-      :base01 "#444267"
-      :base02 "#32374d"
-      :base03 "#676e95"
-      :base04 "#8796b0"
-      :base05 "#959dcb"
-      :base06 "#959dcb"
-      :base07 "#ffffff"
-      :base08 "#f07178"
-      :base09 "#f78c6c"
-      :base0A "#ffcb6b"
-      :base0B "#c3e88d"
-      :base0C "#89ddff"
-      :base0D "#82aaff"
-      :base0E "#c792ea"
-      :base0F "#ff5370")
-    "Custom base16 theme colors based on material palenight")
-  (base16-theme-set-faces 'ww/base16-theme ww/base16-theme-colors '(
-   (fringe :background base00)
-
-   (line-number :foreground base03 :background base00)
-   (line-number-current-line :foreground base0E :background base00)
-
-   (window-divider :foreground base00)
-   (window-divider-first-pixel :foreground base00)
-   (window-divider-last-pixel :foreground base00)
-
-   (internal-border :background base00)
-   (child-frame-border :background base03)
-
-   (ivy-current-match :foreground base09)
-
-   (mode-line :foreground base00 :background base00)
-   (mode-line-inactive :foreground base00 :background base00)
-   (ww/modeline-default-face :foreground base05 :background base02 :box (:color base01))
-   (ww/modeline-popout-face :foreground base00 :background base0D :box (:color base01))
-   (ww/modeline-critical-face :foreground base00 :background base08 :box (:color base01))
-   (ww/modeline-faded-face :foreground base03 :background base02 :box (:color base01))
-
-   (diff-hl-change :background base0E)
-   (diff-hl-delete :background base08)
-   (diff-hl-insert :background base0B)
-
-   (markdown-header-face :weight bold :inherit default)
-
-   (web-mode-html-tag-face :inherit font-lock-constant-face)
-   (web-mode-html-attr-name-face :inherit font-lock-variable-name-face)
-   (web-mode-html-attr-value-face :inherit font-lock-preprocessor-face)))
-  (base16-theme-define 'ww/base16-theme ww/base16-theme-colors)
-
   (setq underline-minimum-offset 5)
-  (setq base16-theme-256-color-source 'colors)
+
+  (defun ww/customize-nord ()
+    "Customize Nord theme colors."
+    (let ((bg (if (display-graphic-p)
+                  (face-background 'default)
+                "unspecified-bg"))
+          (fg (face-foreground 'font-lock-comment-face))
+          (highlight-fg (face-foreground 'font-lock-keyword-face)))
+      (set-face-attribute 'default nil :background bg)
+      (set-face-attribute 'mode-line nil :background bg)
+      (set-face-attribute 'mode-line-inactive nil :background bg)
+      (set-face-attribute 'line-number nil :foreground fg :background bg)
+      (set-face-attribute 'line-number-current-line nil :foreground highlight-fg :background bg)))
+
+  ;; merge conflict highlighting (using nord colors)
+  (with-eval-after-load 'smerge-mode
+    (set-face-attribute 'smerge-upper nil
+                        :background "#5E81AC" :foreground "#ECEFF4" :extend t)  ; nord frost blue
+    (set-face-attribute 'smerge-lower nil
+                        :background "#8FBCBB" :foreground "#2E3440" :extend t)  ; nord frost cyan
+    (set-face-attribute 'smerge-base nil
+                        :background "#B48EAD" :foreground "#2E3440" :extend t)  ; nord aurora purple
+    (set-face-attribute 'smerge-markers nil
+                        :background "#4C566A" :foreground "#D8DEE9" :extend t)) ; nord polar night
 
   (if (daemonp)
     (add-hook 'after-make-frame-functions (lambda (frame)
       (with-selected-frame frame
-        (if (window-system frame) (progn
-          (enable-theme 'ww/base16-theme)
-          (ww/activate-victor-mono))))))
+        (load-theme 'nord t)
+        (ww/customize-nord)
+        (when (window-system frame)
+          (ww/activate-victor-mono)))))
     (progn
-      (enable-theme 'ww/base16-theme)
-      (ww/activate-victor-mono))))
+      (load-theme 'nord t)
+      (ww/customize-nord)
+      (when (display-graphic-p)
+        (ww/activate-victor-mono)))))
 
 (use-package all-the-icons
   :config
