@@ -56,7 +56,7 @@
                       (ignore-errors
                         (when (and (buffer-file-name)
                                    (member (file-name-extension (buffer-file-name))
-                                           '("js" "jsx" "tsx")))
+                                           '("js" "ts" "jsx" "tsx")))
                           (js2-minor-mode 1)
                           (js2-refactor-mode 1))))))
 
