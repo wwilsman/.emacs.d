@@ -5,6 +5,7 @@
 
 ;; ivy and friends
 (use-package ag)
+(use-package rg)
 (use-package flx)
 (use-package smex)
 (use-package ivy

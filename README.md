@@ -27,8 +27,9 @@ it to the list.
 
 - To use [prettier](https://prettier.io/), install it: `npm install -g prettier`
 
-- To use ag, install `the_silver_searcher`: `brew install
-  the_silver_searcher`
+- To use rg, install `ripgrep`: `brew install ripgrep`
+
+- To use ag, install `the_silver_searcher`: `brew install the_silver_searcher`
 
 - To see flycheck errors in JS, install `eslint`: `npm install -g eslint`
 
