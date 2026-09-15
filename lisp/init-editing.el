@@ -104,10 +104,10 @@
          ("C-c r" . crux-rename-file-and-buffer)
          :map window-swap-map
          ("s" . crux-transpose-windows))
-  :chords (("JJ" . crux-switch-to-previous-buffer))
-  :config
-  (crux-with-region-or-buffer indent-region)
-  (crux-with-region-or-buffer untabify))
+  :chords (("JJ" . crux-switch-to-previous-buffer)))
+  ;:config
+  ;(crux-with-region-or-buffer indent-region)
+  ;(crux-with-region-or-buffer untabify))
 
 (defun ww/toggle-indent-tabs-mode ()
   "Toggle the 'indent-tabs-mode' variable."
@@ -188,8 +188,14 @@
   :diminish whitespace-cleanup-mode
   :hook (after-init . global-whitespace-cleanup-mode))
 
+;; smart indent
 (use-package dtrt-indent
   :config
+  (add-to-list 'dtrt-indent-hook-generic-mapping-list
+               '(web-mode web-mode-code-offset
+                          web-mode-markup-indent-offset
+                          web-mode-attr-indent-offset
+                          web-mode-attr-value-indent-offset))
   (dtrt-indent-global-mode))
 
 ;; expand region
