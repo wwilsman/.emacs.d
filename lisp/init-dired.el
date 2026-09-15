@@ -18,7 +18,7 @@
   (dirvish-mode-line-format '(:left (sort symlink) :right (omit yank index)))
   (dirvish-header-line-format '(:left (path)))
   ;; -A shows dotfiles but hides . and ..
-  (dired-listing-switches "-lA")
+  (dired-listing-switches "-l --almost-all --group-directories-first")
   :config
   ;; macOS ls compatibility
   (when (eq system-type 'darwin)
@@ -157,6 +157,81 @@ Uses ceiling to ensure enough space is reserved (fixes navigation)."
       (forward-line 1)))
 
   (advice-add 'dirvish--render-attrs-1 :override #'my/dirvish--render-attrs-1-fixed))
+
+;; Show branch name instead of a commit message for git worktrees.
+;;
+;; Problem: With a worktree layout (e.g. ~/code/glow/gs-ghost/ holding the
+;; main .git and per-branch worktree subdirs), dirvish's git-msg fetch runs
+;; `git log -1 --pretty=%s <subdir>` from the parent repo. Git rejects a
+;; linked worktree path as "outside repository", so the fatal error string is
+;; displayed as the commit message.
+;;
+;; Solution: Override `dirvish-data-for-dir' so that any subdir with its own
+;; `.git` (a linked worktree or nested repo) shows its branch name via
+;; `git -C <dir> symbolic-ref`, falling back to a short SHA for detached HEAD.
+;; Everything else keeps the upstream `git log` behavior.
+(with-eval-after-load 'dirvish-vc
+  (cl-defmethod dirvish-data-for-dir
+    (dir buffer inhibit-setup
+         &context ((dirvish-prop :vc-backend) symbol)
+         &context ((dirvish-prop :remote) symbol))
+    "Fetch data for DIR in BUFFER (worktree-aware git-msg override).
+Behaves like the upstream method but shows the branch name for
+subdirectories that are their own git worktree/repo."
+    (dirvish--make-proc
+     `(prin1
+       (let* ((hs (make-hash-table))
+              (bk ',(dirvish-prop :vc-backend))
+              (info (vc-call-backend bk 'mode-line-string ,dir)))
+         (advice-add #'vc-git--git-status-to-vc-state :around
+                     (lambda (fn codes) (apply fn (list (delete-dups codes)))))
+         (dolist (file (directory-files ,dir t nil t))
+           (let ((state (if (string-suffix-p ,dirvish-vc--always-ignored file)
+                            'ignored (vc-state-refresh file bk)))
+                 (msg (and (eq bk 'Git)
+                           (if (file-exists-p (expand-file-name ".git" file))
+                               ;; Worktree / nested repo: show branch name.
+                               (let ((br (string-trim
+                                          (shell-command-to-string
+                                           (format "git -C %s symbolic-ref --short HEAD 2>/dev/null"
+                                                   (shell-quote-argument file))))))
+                                 (concat
+                                  (if (> (length br) 0)
+                                      br
+                                    ;; Detached HEAD: fall back to short SHA.
+                                    (string-trim
+                                     (shell-command-to-string
+                                      (format "git -C %s rev-parse --short HEAD 2>/dev/null"
+                                              (shell-quote-argument file)))))
+                                  "\n"))
+                             ;; Suppress stderr so files git can't handle
+                             ;; (untracked/outside paths like .git, .claude)
+                             ;; show nothing instead of a fatal error.
+                             (shell-command-to-string
+                              (format "git log -1 --pretty=%%s %s 2>/dev/null"
+                                      (shell-quote-argument file)))))))
+             (puthash (secure-hash 'md5 file)
+                      `(:vc-state ,state :git-msg ,msg) hs)))
+         (cons info hs)))
+     (lambda (p _)
+       (pcase-let ((`(,buf . ,inhibit-setup) (process-get p 'meta))
+                   (`(,info . ,data) (with-current-buffer (process-buffer p)
+                                       (read (buffer-string)))))
+         (when (buffer-live-p buf)
+           (with-current-buffer buf
+             (maphash
+              (lambda (k v)
+                (let ((orig (gethash k dirvish--dir-data)))
+                  (setf (plist-get orig :vc-state) (plist-get v :vc-state))
+                  (setf (plist-get orig :git-msg) (plist-get v :git-msg))
+                  (puthash k orig dirvish--dir-data)))
+              data)
+             (dirvish-prop :vc-info info)
+             (unless inhibit-setup (run-hooks 'dirvish-setup-hook))
+             (dirvish--redisplay))))
+       (delete-process p)
+       (dirvish--kill-buffer (process-buffer p)))
+     nil 'meta (cons buffer inhibit-setup))))
 
 (provide 'init-dired)
 ;;; init-dired.el ends here
