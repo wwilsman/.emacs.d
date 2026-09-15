@@ -36,7 +36,6 @@
 ;; feature configs
 (require 'init-path)
 (require 'init-macos)
-(require 'init-linum)
 (require 'init-windowing)
 (require 'init-editing)
 (require 'init-session)

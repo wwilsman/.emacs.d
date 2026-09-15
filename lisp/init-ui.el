@@ -24,5 +24,9 @@
 (setq widget-image-enable nil
       org-hide-emphasis-markers t)
 
+;; Line numbers
+(setq display-line-numbers-width-start t)
+(global-display-line-numbers-mode t)
+
 (provide 'init-ui)
 ;;; init-ui.el ends here

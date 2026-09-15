@@ -95,9 +95,8 @@
   (base16-theme-set-faces 'ww/base16-theme ww/base16-theme-colors '(
    (fringe :background base00)
 
-   (linum :foreground base03 :background base00)
-   (linum-highlight-face :foreground base0E :background base00)
    (line-number :foreground base03 :background base00)
+   (line-number-current-line :foreground base0E :background base00)
 
    (window-divider :foreground base00)
    (window-divider-first-pixel :foreground base00)
