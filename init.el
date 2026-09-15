@@ -28,6 +28,7 @@
 (require 'init-yaml)
 (require 'init-lua)
 (require 'init-c)
+(require 'init-go)
 
 ;; language server
 (require 'init-lsp)
