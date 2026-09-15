@@ -133,6 +133,10 @@
 (use-package browse-kill-ring
   :chords (("yy" . browse-kill-ring)))
 
+;; clipboard support in terminal
+(use-package clipetty
+  :hook (after-init . global-clipetty-mode))
+
 ;; undo-tree
 (use-package undo-tree
   :diminish undo-tree-mode
