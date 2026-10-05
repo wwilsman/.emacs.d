@@ -35,8 +35,7 @@ fullframe; portrait commit diff goes below the commit message."
           (display-buffer buffer '(display-buffer-in-direction
                                    (direction . right))))
          (t
-          (display-buffer buffer '(display-buffer-use-some-window
-                                   (inhibit-same-window . t))))))
+          (display-buffer buffer '(display-buffer-same-window)))))
        ;; commit diff is shown noselect, so the selected window still holds
        ;; the commit message buffer here
        ((and (eq mode 'magit-diff-mode)
